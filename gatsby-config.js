@@ -29,5 +29,18 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: [
+            "Source Sans Pro:400,600,700",
+            "Lato:300,400,500,700,900",
+            "IBM Plex Mono:300,400",
+            "Roboto Mono:300",
+          ],
+        },
+      },
+    },
   ],
 };
