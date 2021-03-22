@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import { map } from "lodash";
+import { findIndex, includes, map } from "lodash";
+import { useLocation } from "@reach/router";
 
 const tabs = [
   {
     name: "Drops",
-    href: "",
+    href: "drops",
   },
   {
     name: "Profile",
@@ -25,8 +26,9 @@ const tabs = [
   },
 ];
 
-const SlidingTabs = ({ className = "", onChange = () => {}, ...newProps }) => {
-  const [activeTab, setActiveTab] = useState(0);
+const SlidingTabs = ({ className = "", ...newProps }) => {
+  const location = useLocation();
+  const activeTab = findIndex(tabs, (t) => includes(location.pathname, t.href));
   let finalClass = `${className} w-full flex sm:border-b tab-border relative flex-col sm:flex-row`;
   let tabClassName =
     " flex-1 sm:text-center font-light pb-3 cursor-pointer hover:font-semibold";
@@ -51,10 +53,6 @@ const SlidingTabs = ({ className = "", onChange = () => {}, ...newProps }) => {
         className={`${tabClassName} ${
           activeTab === index ? "font-lato font-semibold" : "font-sourceSansPro"
         }`}
-        onClick={() => {
-          setActiveTab(index);
-          onChange(t.value);
-        }}
       >
         {t.name}
       </Link>
