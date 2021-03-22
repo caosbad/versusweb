@@ -48,6 +48,11 @@ module.exports = {
         120: "30rem",
         134: "33rem",
       },
+      translate: {
+        double: "200%",
+        triple: "300%",
+        quad: "400%",
+      },
     },
   },
   variants: {

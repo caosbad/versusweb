@@ -3,16 +3,16 @@ import React from "react";
 import Main from "../../layouts/Main";
 import ArtistHeader from "../../components/artist/ArtistHeader";
 import ArtistSocial from "../../components/artist/ArtistSocial";
-import DropModule from "../../components/drops/DropModule";
+import ArtistCollection from "../../components/artist/ArtistCollection";
 
-const Drops = () => {
+const Collection = () => {
   return (
     <Main>
       <ArtistHeader />
-      <DropModule />
+      <ArtistCollection />
       <ArtistSocial />
     </Main>
   );
 };
 
-export default Drops;
+export default Collection;

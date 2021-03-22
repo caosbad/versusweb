@@ -14,21 +14,24 @@ const tabs = [
   },
   {
     name: "Collection (33)",
-    href: "",
+    href: "collection",
   },
   {
     name: "For Sale",
-    href: "",
+    href: "forsale",
   },
   {
     name: "Unlisted",
-    href: "",
+    href: "unlisted",
   },
 ];
 
 const SlidingTabs = ({ className = "", ...newProps }) => {
   const location = useLocation();
-  const activeTab = findIndex(tabs, (t) => includes(location.pathname, t.href));
+  const activeTab = findIndex(
+    tabs,
+    (t) => location.pathname === `/artist/${t.href}`
+  );
   let finalClass = `${className} w-full flex sm:border-b tab-border relative flex-col sm:flex-row`;
   let tabClassName =
     " flex-1 sm:text-center font-light pb-3 cursor-pointer hover:font-semibold";

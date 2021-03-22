@@ -47,3 +47,11 @@ input[type="search"]::-webkit-search-results-decoration {
 .tab-border {
   border-bottom: 1px solid #e0e0e0;
 }
+
+.medium-zoom-overlay {
+  z-index: 99;
+}
+
+.medium-zoom-image--opened {
+  z-index: 99;
+}
