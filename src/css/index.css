@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply font-sourceSansPro;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.standard-button {
+  @apply bg-black-400 text-white font-sourceSansPro font-semibold transition-colors cursor-pointer hover:bg-black-500 duration-300 py-2 px-6 rounded-full uppercase focus:outline-none;
+}
+
+.small-button {
+  @apply text-xs;
+}
+
+.long-button {
+  @apply px-16;
+}
+
+.white-button {
+  @apply bg-transparent hover:bg-transparent border border-white;
+}
+
+.featured-image {
+  height: 32rem;
+}
+
+.bigv {
+  position: absolute;
+  bottom: -80px;
+  z-index: 1;
+  width: 100%;
+}

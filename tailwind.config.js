@@ -2,6 +2,10 @@ module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+    },
     fontFamily: {
       sourceSansPro: "Source Sans Pro, sans-serif",
       lato: "Lato, sans-serif",
@@ -34,6 +38,8 @@ module.exports = {
         900: "#000000",
       },
       white: "#ffffff",
+      transparent: "transparent",
+      lightGrey: "#FAFAFA",
     },
     extend: {},
   },
