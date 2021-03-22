@@ -39,9 +39,9 @@ const slickSettings = {
 const ArtistProfile = () => {
   return (
     <div className="bg-white py-12 text-center">
-      <div className="mb-6 w-108 max-w-full mx-auto">
+      <div className="mb-8 w-108 max-w-full mx-auto">
         <h3 className="font-lato text-2xl font-bold">About the artist</h3>
-        <p className="mt-2 text-sm text-mediumGrey">
+        <p className="mt-4 text-mediumGrey">
           Vince has made a name for himself in the traditional art world through
           painting tattoed underworld figures and gangsters. He has never before
           launched an artwork on a NFT platform, and we look forward to seeing
@@ -50,8 +50,8 @@ const ArtistProfile = () => {
           painting
         </p>
       </div>
-      <div className="mb-6 w-full max-w-full mx-auto">
-        <h3 className="font-lato text-2xl font-bold mb-2">Recent Work</h3>
+      <div className="mb-8 w-full max-w-full mx-auto">
+        <h3 className="font-lato text-2xl font-bold mb-4">Recent Work</h3>
         <Slider {...slickSettings}>
           {map(slides, (s, index) => (
             <div key={`piece-${index}`} className="h-108 rounded-lg px-8">
@@ -63,9 +63,9 @@ const ArtistProfile = () => {
           ))}
         </Slider>
       </div>
-      <div className="mb-6 w-96 max-w-full mx-auto">
+      <div className="mb-8 w-96 max-w-full mx-auto">
         <h3 className="font-lato text-2xl font-bold">Space Whale</h3>
-        <p className="mt-2 text-sm text-mediumGrey mb-12">
+        <p className="mt-4 text-mediumGrey mb-12">
           Vince has made a name for himself in the traditional art world through
           painting tattoed underworld.
         </p>
