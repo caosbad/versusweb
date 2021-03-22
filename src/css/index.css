@@ -25,6 +25,10 @@ input[type="search"]::-webkit-search-results-decoration {
   @apply px-16;
 }
 
+.transparent-button {
+  @apply bg-transparent hover:bg-transparent border text-black-500 border-black-500;
+}
+
 .white-button {
   @apply bg-transparent hover:bg-transparent border border-white;
 }
@@ -38,4 +42,8 @@ input[type="search"]::-webkit-search-results-decoration {
   bottom: -80px;
   z-index: 1;
   width: 100%;
+}
+
+.tab-border {
+  border-bottom: 1px solid #e0e0e0;
 }

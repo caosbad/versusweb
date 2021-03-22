@@ -6,7 +6,7 @@ import SearchBox from "../search/SearchBox";
 
 const Nav = () => {
   return (
-    <div className="grid grid-cols-4 items-center py-4 bg-cream-500 px-6 mx-auto relative z-20">
+    <div className="grid grid-cols-4 items-center py-4 bg-cream-500 px-6 mx-auto relative z-30">
       <div className="flex items-start">
         <Link to="/" className="flex items-start">
           <Logo className="h-12" />

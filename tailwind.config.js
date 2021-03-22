@@ -40,8 +40,15 @@ module.exports = {
       white: "#ffffff",
       transparent: "transparent",
       lightGrey: "#FAFAFA",
+      mediumGrey: "6f6f6f",
     },
-    extend: {},
+    extend: {
+      spacing: {
+        108: "27rem",
+        120: "30rem",
+        134: "33rem",
+      },
+    },
   },
   variants: {
     extend: {},
