@@ -8,7 +8,7 @@ const Unlisted = () => {
   return (
     <Main>
       <ArtistHeader />
-      <div className="py-12 bg-white text-center h-108">
+      <div className="py-12 bg-white text-center h-108 container">
         <h4 className="font-lato font-bold text-xl">
           Marketplace coming soon...
         </h4>

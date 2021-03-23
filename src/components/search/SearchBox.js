@@ -50,7 +50,7 @@ const SearchBox = () => {
         <Search className="absolute text-black-200 stroke-current left-2 h-3 top-1/2 transform -translate-y-1/2" />
       </form>
       {query && (
-        <div className="absolute left-0 w-full top-full shadow-sm rounded-sm bg-white mt-2 z-50">
+        <div className="absolute left-0 w-full top-full shadow-sm rounded-sm bg-white mt-2 z-50 max-w-full">
           {map(results, (r, index) => (
             <SearchResult
               key={r.id}

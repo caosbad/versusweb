@@ -30,7 +30,7 @@ const WhatsDifferent = () => {
   return (
     <div className="bg-white relative">
       <img src={graytriangle} className="absolute" />
-      <div className="container grid grid-cols-2 py-36 relative z-10">
+      <div className="container grid sm:grid-cols-2 py-36 relative z-10">
         <div className="w-10/12">
           <h2 className="text-4xl font-lato font-bold">
             What&apos;s{" "}
@@ -42,7 +42,7 @@ const WhatsDifferent = () => {
             Request early access to be included in our inaugural drop.
           </h3>
         </div>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-8 mt-12">
           {map(features, (f, index) => (
             <div key={`feature-${index}`}>
               <div className="bg-black-50 h-16 w-16 rounded-full"></div>

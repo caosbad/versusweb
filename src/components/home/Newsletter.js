@@ -5,14 +5,16 @@ const Newsletter = () => {
     e.preventDefault();
   };
   return (
-    <div className="container py-12 grid grid-cols-5 items-center">
-      <div className="col-span-3">
-        <h2 className="text-4xl font-lato font-bold">Ready to get started?</h2>
-        <h2 className="text-4xl font-ibm font-light tracking-tighter mt-2">
+    <div className="container py-12 md:grid md:grid-cols-5 flex flex-col items-center">
+      <div className="md:col-span-3 text-center md:text-left">
+        <h2 className="text-3xl lg:text-4xl font-lato font-bold">
+          Ready to get started?
+        </h2>
+        <h2 className="text-3xl lg:text-4xl font-ibm font-light tracking-tighter mt-2">
           Sign up or contact us
         </h2>
       </div>
-      <div className="col-span-2">
+      <div className="mt-6 md:mt-0 max-w-lg w-full md:max-w-none md:col-span-2">
         <form className="relative w-full" onSubmit={handleSubmit}>
           <input
             type="email"

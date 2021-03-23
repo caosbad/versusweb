@@ -15,7 +15,7 @@ const Landing = () => {
   return (
     <div className="relative">
       <img src={bigv} className="bigv" />
-      <div className="container grid grid-cols-2 py-36 relative z-10">
+      <div className="container grid md:grid-cols-2 py-36 relative z-10">
         <div className="flex flex-col justify-center w-10/12">
           <h1 className="text-7xl font-lato font-bold">
             Versus.{" "}
@@ -42,7 +42,7 @@ const Landing = () => {
             *By entering your details you are signing up to our privacy policy
           </span>
         </div>
-        <div className="grid grid-flow-col grid-rows-5 grid-cols-3 gap-4 h-96">
+        <div className="grid grid-flow-col grid-rows-5 grid-cols-2 sm:grid-cols-3 gap-4 h-96 mt-12 md:mt-0">
           <div className="rounded row-span-3">
             <img src={hero1} className="object-cover h-full w-full rounded" />
           </div>
@@ -55,10 +55,10 @@ const Landing = () => {
           <div className="rounded row-span-3">
             <img src={hero5} className="object-cover h-full w-full rounded" />
           </div>
-          <div className="rounded row-span-3">
+          <div className="rounded row-span-3 hidden sm:block">
             <img src={hero3} className="object-cover h-full w-full rounded" />
           </div>
-          <div className="rounded row-span-2">
+          <div className="rounded row-span-2 hidden sm:block">
             <img src={hero6} className="object-cover h-full w-full rounded" />
           </div>
         </div>

@@ -5,7 +5,7 @@ const EditionBidBox = () => {
     e.preventDefault();
   };
   return (
-    <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col h-120">
+    <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120">
       <div className="flex-1">
         <div className="mb-6">
           <span className="text-xl font-light text-mediumGrey">? / 25</span>
@@ -24,8 +24,11 @@ const EditionBidBox = () => {
           </p>
         </div>
       </div>
-      <div>
-        <form className="relative w-full uppercase" onSubmit={handleSubmit}>
+      <div className="mt-12 sm:mt-0">
+        <form
+          className="relative w-full uppercase flex flex-col sm:block"
+          onSubmit={handleSubmit}
+        >
           <input
             type="number"
             placeholder="$400 Bid"
@@ -33,7 +36,7 @@ const EditionBidBox = () => {
           />
           <input
             type="submit"
-            className="standard-button small-button absolute right-0 h-full px-6"
+            className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
             value="Place Bid"
           />
         </form>

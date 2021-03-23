@@ -12,7 +12,7 @@ const YouWon = () => {
     <Main>
       <Confetti width={width} height={height} />
       <div className="py-12 bg-white">
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="w-full max-w-screen-lg mx-auto container">
           <DropDetails />
           <div className="my-12 text-center">
             <h4 className="font-lato font-bold text-4xl">Congratulations!</h4>

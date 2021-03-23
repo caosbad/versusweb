@@ -51,7 +51,7 @@ const MeetTheArtists = () => {
             the artists
           </span>
         </h2>
-        <div className="mt-9 grid grid-cols-4 gap-6">
+        <div className="mt-9 grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           {map(artists, (a, index) => (
             <div key={`artist-${index}`} className="h-full flex flex-col">
               <div className="w-full h-48 rounded-t">

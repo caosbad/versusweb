@@ -5,7 +5,7 @@ const UniqueBidBox = () => {
     e.preventDefault();
   };
   return (
-    <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col h-120">
+    <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120">
       <div className="absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 bg-black-500 text-lightGrey py-1 text-sm font-bold rounded-t">
         Current Winning Bid
       </div>
@@ -23,8 +23,11 @@ const UniqueBidBox = () => {
           <p className="text-3xl font-bold">$11,000</p>
         </div>
       </div>
-      <div>
-        <form className="relative w-full uppercase" onSubmit={handleSubmit}>
+      <div className="mt-12 sm:mt-0">
+        <form
+          className="relative w-full uppercase flex flex-col sm:block"
+          onSubmit={handleSubmit}
+        >
           <input
             type="number"
             placeholder="Enter Bid"
@@ -32,7 +35,7 @@ const UniqueBidBox = () => {
           />
           <input
             type="submit"
-            className="standard-button small-button absolute right-0 h-full px-6"
+            className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
             value="Place Bid"
           />
         </form>

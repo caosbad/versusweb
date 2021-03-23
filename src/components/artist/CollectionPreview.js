@@ -6,7 +6,7 @@ import piece1 from "../../images/piece1.png";
 const CollectionPreview = () => {
   return (
     <Link to="#" className="w-full">
-      <div className="h-64 rounded-lg px-8">
+      <div className="h-36 sm:h-56 lg:h-64 rounded-lg xl:px-8">
         <img
           src={piece1}
           className="w-full h-full object-cover rounded-lg cursor-pointer"

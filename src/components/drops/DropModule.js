@@ -5,7 +5,7 @@ import DropDetails from "./DropDetails";
 const DropModule = () => {
   return (
     <div className="py-12 bg-white">
-      <div className="w-full max-w-screen-lg mx-auto">
+      <div className="w-full mx-auto container">
         <DropDetails />
         <DropBids />
       </div>

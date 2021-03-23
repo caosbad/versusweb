@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 const SearchResult = ({ result, isLast }) => {
   return (
-    <Link to="/artist">
+    <Link to="/artist/">
       <div className="flex items-center cursor-pointer p-4 transition duration-300 hover:bg-black-50 hover:bg-opacity-30">
         <div className="h-10 w-10">
           <img src={result.image} className="object-cover" />

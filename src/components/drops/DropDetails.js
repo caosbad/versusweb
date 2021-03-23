@@ -10,11 +10,11 @@ const DropDetails = () => {
   });
   return (
     <div className="text-center">
-      <div className="w-96 mx-auto">
+      <div className="w-96 mx-auto max-w-full">
         <h4 className="font-lato font-bold text-xl">03.03.2021</h4>
         <h2 className="font-bold text-4xl mt-2">5 days, 10 hours</h2>
         <div className="my-8">
-          <div className="h-108 rounded-lg px-8">
+          <div className="h-84 sm:h-108 rounded-lg px-8">
             <img
               src={piece1}
               className="w-full h-full object-cover rounded-lg cursor-pointer"

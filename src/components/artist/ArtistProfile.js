@@ -31,6 +31,12 @@ const slickSettings = {
   dots: false,
   infinite: true,
   slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 640,
+      settings: { slidesToShow: 2 },
+    },
+  ],
   focusOnSelect: true,
   arrows: false,
   centerMode: true,
@@ -39,7 +45,7 @@ const slickSettings = {
 const ArtistProfile = () => {
   return (
     <div className="bg-white py-12 text-center">
-      <div className="mb-8 w-108 max-w-full mx-auto">
+      <div className="mb-8 w-108 max-w-full mx-auto px-4">
         <h3 className="font-lato text-2xl font-bold">About the artist</h3>
         <p className="mt-4 text-mediumGrey">
           Vince has made a name for himself in the traditional art world through
@@ -54,7 +60,10 @@ const ArtistProfile = () => {
         <h3 className="font-lato text-2xl font-bold mb-4">Recent Work</h3>
         <Slider {...slickSettings}>
           {map(slides, (s, index) => (
-            <div key={`piece-${index}`} className="h-108 rounded-lg px-8">
+            <div
+              key={`piece-${index}`}
+              className="h-36 sm:h-56 md:h-64 lg:h-108 rounded-lg px-3 md:px-4 xl:px-8"
+            >
               <img
                 src={s.image}
                 className="w-full h-full object-cover rounded-lg"
@@ -63,7 +72,7 @@ const ArtistProfile = () => {
           ))}
         </Slider>
       </div>
-      <div className="mb-8 w-96 max-w-full mx-auto">
+      <div className="mb-8 w-96 max-w-full mx-auto px-4">
         <h3 className="font-lato text-2xl font-bold">Space Whale</h3>
         <p className="mt-4 text-mediumGrey mb-12">
           Vince has made a name for himself in the traditional art world through
