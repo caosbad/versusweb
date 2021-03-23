@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Versus",
+    siteUrl: "http://versus-flow.art/",
   },
   plugins: [
     "gatsby-plugin-image",

@@ -1,13 +1,10 @@
-import React, { useRef } from "react";
-import { useMediumZoom } from "@halka/react-medium-zoom";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 import piece1 from "../../images/piece1.png";
 
 const DropDetails = () => {
-  const image = useRef();
-  const handler = useMediumZoom(image, {
-    background: "black",
-  });
   return (
     <div className="text-center">
       <div className="w-96 mx-auto max-w-full">
@@ -15,17 +12,14 @@ const DropDetails = () => {
         <h2 className="font-bold text-4xl mt-2">5 days, 10 hours</h2>
         <div className="my-8">
           <div className="h-84 sm:h-108 rounded-lg px-8">
-            <img
-              src={piece1}
-              className="w-full h-full object-cover rounded-lg cursor-pointer"
-              onClick={() => handler.open()}
-              ref={image}
-            />
+            <Zoom>
+              <img
+                src={piece1}
+                className="w-full h-full object-cover rounded-lg cursor-pointer"
+              />
+            </Zoom>
           </div>
-          <span
-            className="text-sm text-mediumGrey mt-2 cursor-pointer"
-            onClick={() => handler.open()}
-          >
+          <span className="text-sm text-mediumGrey mt-2 cursor-pointer">
             Click to expand
           </span>
         </div>
