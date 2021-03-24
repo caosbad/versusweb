@@ -12,9 +12,12 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "dev-wallet": "PK=bf9db4706c2fdb9011ee7e170ccac492f05427b96ab41d8bf2d8c58443704b76 fcl-wallet"
   },
   "dependencies": {
+    "@onflow/fcl": "^0.0.67",
+    "@onflow/types": "^0.0.4",
     "gatsby": "^3.0.1",
     "gatsby-plugin-google-analytics": "^3.1.0",
     "gatsby-plugin-image": "^1.1.1",
@@ -39,6 +42,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@onflow/dev-wallet": "^0.0.10",
     "tailwindcss": "^2.0.4"
   }
 }
