@@ -16,6 +16,7 @@
     "dev-wallet": "PK=bf9db4706c2fdb9011ee7e170ccac492f05427b96ab41d8bf2d8c58443704b76 fcl-wallet"
   },
   "dependencies": {
+    "@improbable-eng/grpc-web": "^0.12.0",
     "@onflow/fcl": "^0.0.67",
     "@onflow/types": "^0.0.4",
     "gatsby": "^3.0.1",
