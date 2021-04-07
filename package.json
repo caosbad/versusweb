@@ -31,7 +31,9 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-transformer-sharp": "^3.1.0",
+    "https-browserify": "^1.0.0",
     "lodash": "^4.17.21",
+    "node-polyfill-webpack-plugin": "^1.0.3",
     "postcss": "^8.2.6",
     "react": "^17.0.1",
     "react-confetti": "^6.0.1",
@@ -40,7 +42,8 @@
     "react-medium-image-zoom": "^4.3.1",
     "react-slick": "^0.28.1",
     "react-use": "^17.2.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "stream-http": "^3.1.1"
   },
   "devDependencies": {
     "@onflow/dev-wallet": "^0.0.10",

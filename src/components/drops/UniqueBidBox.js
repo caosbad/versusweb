@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useRef } from "react";
+import * as fcl from "@onflow/fcl";
+import * as t from "@onflow/types";
+
+import { bidTransaction, tx } from "./transactions";
 
 const UniqueBidBox = () => {
-  const handleSubmit = (e) => {
+  const form = useRef(null);
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const { bid } = form.current;
+    await tx(
+      [
+        fcl.transaction(bidTransaction),
+        fcl.args([
+          fcl.arg("marketplaceAccount", t.Address),
+          fcl.arg("dropId", t.UInt64),
+          fcl.arg("auctionId", t.UInt64),
+          fcl.arg("price", t.UFix64),
+        ]),
+        fcl.proposer(fcl.currentUser().authorization),
+        fcl.payer(fcl.currentUser().authorization),
+        fcl.authorizations([fcl.currentUser().authorization]),
+        fcl.limit(1000),
+      ],
+      {
+        onStart() {
+          setStatus("Transaction received");
+        },
+        async onSuccess(foo) {
+          setStatus("Transaction success");
+          handleBidTransaction(foo);
+        },
+        onSubmission() {
+          setStatus("Transaction submitted");
+        },
+        async onComplete() {
+          setStatus("");
+        },
+        async onError(error) {
+          setStatus("Transaction Error");
+        },
+      }
+    );
   };
   return (
     <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120">
@@ -27,10 +66,12 @@ const UniqueBidBox = () => {
         <form
           className="relative w-full uppercase flex flex-col sm:block"
           onSubmit={handleSubmit}
+          ref={form}
         >
           <input
             type="number"
             placeholder="Enter Bid"
+            name="bid"
             className="placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none"
           />
           <input

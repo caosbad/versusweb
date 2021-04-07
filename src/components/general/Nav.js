@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
+import * as fcl from "@onflow/fcl";
 
 import Logo from "../../assets/vslogo.svg";
 import SearchBox from "../search/SearchBox";
 
-const Nav = () => {
+const Nav = ({ user }) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 items-center py-4 bg-cream-500 px-6 mx-auto relative z-30">
       <div className="flex items-start">
@@ -16,13 +17,18 @@ const Nav = () => {
         <SearchBox />
       </div>
       <div className="flex justify-end">
-        <button
-          className="standard-button small-button"
-          role="button"
-          aria-label="Connect Wallet"
-        >
-          Connect Wallet
-        </button>
+        {user ? (
+          <button
+            className="standard-button small-button"
+            role="button"
+            aria-label="Connect Wallet"
+            onClick={fcl.logIn}
+          >
+            Connect Wallet
+          </button>
+        ) : (
+          "connected"
+        )}
       </div>
     </div>
   );
