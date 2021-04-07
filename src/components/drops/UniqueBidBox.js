@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 
@@ -6,6 +6,7 @@ import { bidTransaction, tx } from "./transactions";
 
 const UniqueBidBox = () => {
   const form = useRef(null);
+  const [status, setStatus] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { bid } = form.current;
@@ -29,7 +30,7 @@ const UniqueBidBox = () => {
         },
         async onSuccess(foo) {
           setStatus("Transaction success");
-          handleBidTransaction(foo);
+          // handleBidTransaction(foo);
         },
         onSubmission() {
           setStatus("Transaction submitted");
