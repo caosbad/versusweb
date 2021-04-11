@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "gatsby";
 import { map } from "lodash";
 
-import artist1 from "../../images/artist1.png";
-import artist2 from "../../images/artist2.png";
-import artist3 from "../../images/artist3.png";
-import artist4 from "../../images/artist4.png";
+import artist1 from "../../images/artist1.jpg";
+import artist2 from "../../images/artist2.jpg";
+import artist3 from "../../images/artist3.jpg";
+import artist4 from "../../images/artist4.jpg";
 
 const artists = [
   {

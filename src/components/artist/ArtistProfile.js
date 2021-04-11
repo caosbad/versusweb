@@ -1,31 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
-import { map } from "lodash";
-import { Link } from "gatsby";
+import { get, map } from "lodash";
+import { Link, withPrefix } from "gatsby";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import piece1 from "../../images/piece1.png";
-import piece2 from "../../images/piece2.png";
-import piece3 from "../../images/piece3.png";
-
-const slides = [
-  {
-    image: piece1,
-  },
-  {
-    image: piece2,
-  },
-  {
-    image: piece3,
-  },
-  {
-    image: piece1,
-  },
-  {
-    image: piece2,
-  },
-];
 
 const slickSettings = {
   dots: false,
@@ -42,19 +21,16 @@ const slickSettings = {
   centerMode: true,
 };
 
-const ArtistProfile = () => {
+const ArtistProfile = ({ dropInfo }) => {
+  const { aboutArtist, recentWork } = dropInfo;
+  const slides = map(recentWork, (w) => ({
+    image: withPrefix(w.image),
+  }));
   return (
     <div className="bg-white py-12 text-center">
       <div className="mb-8 w-108 max-w-full mx-auto px-4">
         <h3 className="font-lato text-2xl font-bold">About the artist</h3>
-        <p className="mt-4 text-mediumGrey">
-          Vince has made a name for himself in the traditional art world through
-          painting tattoed underworld figures and gangsters. He has never before
-          launched an artwork on a NFT platform, and we look forward to seeing
-          what he brings to his gensis drop! If the unique side wins Vincent’s
-          auction the winnner will have the option to receive Vince’s physical
-          painting
-        </p>
+        <p className="mt-4 text-mediumGrey">{aboutArtist}</p>
       </div>
       <div className="mb-8 w-full max-w-full mx-auto">
         <h3 className="font-lato text-2xl font-bold mb-4">Recent Work</h3>
@@ -73,10 +49,11 @@ const ArtistProfile = () => {
         </Slider>
       </div>
       <div className="mb-8 w-96 max-w-full mx-auto px-4">
-        <h3 className="font-lato text-2xl font-bold">Space Whale</h3>
+        <h3 className="font-lato text-2xl font-bold">
+          {get(recentWork, "[0].title")}
+        </h3>
         <p className="mt-4 text-mediumGrey mb-12">
-          Vince has made a name for himself in the traditional art world through
-          painting tattoed underworld.
+          {get(recentWork, "[0].description")}
         </p>
         <Link to="/" className="standard-button long-button transparent-button">
           View Drop

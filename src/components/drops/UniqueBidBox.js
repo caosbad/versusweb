@@ -3,21 +3,34 @@ import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 
 import { bidTransaction, tx } from "./transactions";
+import get from "lodash.get";
 
-const UniqueBidBox = () => {
+const UniqueBidBox = ({ drop, marketplaceAccount }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { bid } = form.current;
+    const newBid = parseFloat(bid.value);
+    if (newBid < parseFloat(drop.uniqueStatus.minNextBid))
+      return setStatus(
+        `Minimum next bid must be at least ${parseFloat(
+          drop.uniqueStatus.minNextBid
+        ).toFixed(2)}`
+      );
+    console.log(
+      parseInt(bid.value),
+      parseInt(drop.dropId, 10),
+      parseInt(drop.uniqueStatus.edition, 10)
+    );
     await tx(
       [
         fcl.transaction(bidTransaction),
         fcl.args([
-          fcl.arg("marketplaceAccount", t.Address),
-          fcl.arg("dropId", t.UInt64),
-          fcl.arg("auctionId", t.UInt64),
-          fcl.arg("price", t.UFix64),
+          fcl.arg(marketplaceAccount, t.Address),
+          fcl.arg(parseInt(drop.dropId, 10), t.UInt64),
+          fcl.arg(drop.uniqueStatus.edition, t.UInt64),
+          fcl.arg(newBid, t.UFix64),
         ]),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
@@ -60,10 +73,12 @@ const UniqueBidBox = () => {
         </div>
         <div className="mt-8">
           <p className="text-xl text-mediumGrey opacity-60">current bid:</p>
-          <p className="text-3xl font-bold">$11,000</p>
+          <p className="text-3xl font-bold">
+            F{get(drop, "uniqueStatus.price")}
+          </p>
         </div>
       </div>
-      <div className="mt-12 sm:mt-0">
+      <div className="mt-12 sm:mt-0 relative mb-2">
         <form
           className="relative w-full uppercase flex flex-col sm:block"
           onSubmit={handleSubmit}
@@ -81,6 +96,9 @@ const UniqueBidBox = () => {
             value="Place Bid"
           />
         </form>
+        <span className="w-full left-0 absolute top-full mt-2 text-center">
+          {status}
+        </span>
       </div>
     </div>
   );

@@ -12,25 +12,27 @@ const tabs = [
     name: "Profile",
     href: "",
   },
-  {
-    name: "Collection (33)",
-    href: "collection",
-  },
-  {
-    name: "For Sale",
-    href: "forsale",
-  },
-  {
-    name: "Unlisted",
-    href: "unlisted",
-  },
+  // {
+  //   name: "Collection (33)",
+  //   href: "collection",
+  // },
+  // {
+  //   name: "For Sale",
+  //   href: "forsale",
+  // },
+  // {
+  //   name: "Unlisted",
+  //   href: "unlisted",
+  // },
 ];
 
-const SlidingTabs = ({ className = "", ...newProps }) => {
+const ArtistTabs = ({ className = "", dropInfo, ...newProps }) => {
   const location = useLocation();
   const activeTab = findIndex(
     tabs,
-    (t) => location.pathname === `/artist/${t.href}`
+    (t) =>
+      location.pathname ===
+      `/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}`
   );
   let finalClass = `${className} w-full flex sm:border-b tab-border relative flex-col sm:flex-row`;
   let tabClassName =
@@ -52,7 +54,7 @@ const SlidingTabs = ({ className = "", ...newProps }) => {
     return (
       <Link
         key={`${t.value}-${index}`}
-        to={`/artist/${t.href}`}
+        to={`/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}`}
         className={`${tabClassName} ${
           activeTab === index ? "font-lato font-semibold" : "font-sourceSansPro"
         }`}
@@ -69,4 +71,4 @@ const SlidingTabs = ({ className = "", ...newProps }) => {
   );
 };
 
-export default SlidingTabs;
+export default ArtistTabs;

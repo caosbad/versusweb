@@ -2,30 +2,32 @@ import React, { useEffect, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import * as sdk from "@onflow/sdk";
+import { graphql } from "gatsby";
+import { get } from "lodash";
 
 import Main from "../../layouts/Main";
 import ArtistHeader from "../../components/artist/ArtistHeader";
 import ArtistSocial from "../../components/artist/ArtistSocial";
 import DropModule from "../../components/drops/DropModule";
-import { fetchVersusDrop } from "./transactions";
+import { fetchVersusDrop } from "../../pages/artist/transactions";
 import Loading from "../../components/general/Loading";
 
-const marketplaceAccount = "0x179b6b1cb6755e31";
-
-const Drops = ({ user }) => {
+export default ({ data }) => {
+  console.log(data, "data");
+  const dropInfo = get(data, "allSitePage.edges[0].node.context");
   const [drop, setDrop] = useState(null);
   const [bidTransaction, setBidTransaction] = useState(null);
-  console.log(drop, bidTransaction);
+  //   console.log(drop, bidTransaction);
   useEffect(() => {
     async function fetchDrop() {
-      console.log("response");
+      //   console.log("response");
       const response = await fcl.send([
         fcl.script(fetchVersusDrop),
-        sdk.args([sdk.arg(marketplaceAccount, t.Address)]),
+        sdk.args([sdk.arg(dropInfo.id, t.Address)]),
       ]);
-      console.log(response);
+      //   console.log(response);
       const dropResponse = await fcl.decode(response);
-      console.log(dropResponse);
+      //   console.log(dropResponse);
       setDrop(dropResponse);
       setBidTransaction(null); //we mark that the current transaction has been taken into account
     }
@@ -34,13 +36,17 @@ const Drops = ({ user }) => {
         fetchDrop();
       }, 5000);
     }
-  }, [drop, user, bidTransaction]);
+  }, [drop, bidTransaction]);
   return (
     <Main>
       {drop ? (
         <>
-          <ArtistHeader />
-          <DropModule drop={drop} marketplaceAccount={marketplaceAccount} />
+          <ArtistHeader dropInfo={dropInfo} />
+          <DropModule
+            dropInfo={dropInfo}
+            drop={drop}
+            marketplaceAccount={dropInfo.id}
+          />
           <ArtistSocial />
         </>
       ) : (
@@ -50,4 +56,28 @@ const Drops = ({ user }) => {
   );
 };
 
-export default Drops;
+export const query = graphql`
+  query($path: String!) {
+    allSitePage(filter: { path: { eq: $path } }) {
+      edges {
+        node {
+          context {
+            id
+            title
+            artist
+            handle
+            smallImage
+            featuredImage
+            aboutArtist
+            recentWork {
+              image
+              title
+              description
+              link
+            }
+          }
+        }
+      }
+    }
+  }
+`;

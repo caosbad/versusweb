@@ -1,12 +1,25 @@
 import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
+import { find, map, reduce } from "lodash";
 
 import { bidTransaction, tx } from "./transactions";
 
-const EditionBidBox = () => {
+const EditionBidBox = ({ drop }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
+  const [activeEdition, setActiveEdition] = useState(1);
+  const { editionsStatuses } = drop;
+  const currentEdition = find(
+    editionsStatuses,
+    (e) => e.edition === activeEdition
+  );
+  const totalPrice = reduce(
+    editionsStatuses,
+    (sum, e) => sum + parseFloat(e.price),
+    0
+  );
+  console.log(totalPrice);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { bid } = form.current;
@@ -57,14 +70,36 @@ const EditionBidBox = () => {
           </span>
         </div>
         <div className="mt-8">
-          <p className="text-xl text-mediumGrey opacity-60">25 bids of:</p>
-          <p className="text-3xl font-bold">$400</p>
+          <p className="text-xl text-mediumGrey opacity-60">
+            current bid on #{activeEdition}:
+          </p>
+          <p className="text-3xl font-bold">
+            F{currentEdition.price.toLocaleString()}
+          </p>
           <p className="text-lg">
-            (Combined total: <span className="font-bold">$10,000</span>)
+            (Combined total:{" "}
+            <span className="font-bold">F{totalPrice.toLocaleString()}</span>)
           </p>
         </div>
       </div>
-      <div className="mt-12 sm:mt-0">
+      <div className="mt-12 sm:mt-0 mb-2 flex flex-col">
+        <select
+          className="w-3/4 mx-auto mb-3 py-3 px-6 font-lato"
+          onChange={(e) => {
+            setStatus("");
+            setActiveEdition(parseInt(e.currentTarget.value));
+          }}
+        >
+          {map(editionsStatuses, (e, index) => (
+            <option
+              key={`edition-${e.edition}`}
+              value={e.edition}
+              selected={index === 0}
+            >
+              Edition #{e.edition} - F{e.price.toLocaleString()}
+            </option>
+          ))}
+        </select>
         <form
           className="relative w-full uppercase flex flex-col sm:block"
           onSubmit={handleSubmit}
@@ -82,6 +117,9 @@ const EditionBidBox = () => {
             value="Place Bid"
           />
         </form>
+        <span className="w-full left-0 absolute top-full mt-2 text-center">
+          {status}
+        </span>
       </div>
     </div>
   );
