@@ -14,9 +14,7 @@ const Nav = ({ user }) => {
           <Logo className="h-12" />
         </Link>
       </div>
-      {/* <div className="col-span-2 flex justify-center order-1 sm:order-none mt-4 sm:mt-0">
-        <SearchBox />
-      </div> */}
+      <div className="col-span-2 flex justify-center order-1 sm:order-none mt-4 sm:mt-0"></div>
       <div className="flex justify-end">
         {!user.loggedIn ? (
           <button
