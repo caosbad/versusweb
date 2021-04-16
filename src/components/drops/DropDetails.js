@@ -67,7 +67,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
             <h2 className="font-ibm font-xl font-light">{dropInfo.artist}</h2>
           </div>
           <p className="mt-4 text-sm text-mediumGrey">
-            {get(drop, "metadata.description")}
+            {/* {get(drop, "metadata.description")} */}
           </p>
         </div>
       </div>

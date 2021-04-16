@@ -50,9 +50,6 @@ const Footer = () => {
               >
                 Contact Us
               </a>
-              <Link className="mb-2" to="/faq">
-                What is Versus?
-              </Link>
               <a
                 className="mb-2"
                 href="https://discord.gg/aRjPpU9A8t"
