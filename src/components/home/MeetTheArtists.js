@@ -74,9 +74,6 @@ const MeetTheArtists = () => {
                   <p className="font-bold font-lato">{a.handle}</p>
                   <p className="mt-3 leading-relaxed">{a.text}</p>
                 </div>
-                <Link to={a.link} className="font-bold underline">
-                  View Profile &gt;
-                </Link>
               </div>
             </div>
           ))}

@@ -20,7 +20,7 @@ const FeaturedDrop = () => {
             <span className="font-bold">April</span>
           </span>
           <Link
-            to="/artist/drops/0x179b6b1cb6755e31"
+            to="/artist/drops/1"
             className="standard-button long-button white-button"
           >
             View Drop

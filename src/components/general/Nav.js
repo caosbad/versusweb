@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import * as fcl from "@onflow/fcl";
+import { get } from "lodash";
 
 import Logo from "../../assets/vslogo.svg";
 import SearchBox from "../search/SearchBox";
@@ -17,17 +18,23 @@ const Nav = ({ user }) => {
         <SearchBox />
       </div>
       <div className="flex justify-end">
-        {user ? (
+        {!user.loggedIn ? (
           <button
             className="standard-button small-button"
             role="button"
             aria-label="Connect Wallet"
-            onClick={fcl.logIn}
           >
-            Connect Wallet
+            Coming Soon
           </button>
         ) : (
-          "connected"
+          <button
+            className="standard-button small-button"
+            role="button"
+            aria-label="Disconnect Wallet"
+            onClick={fcl.unauthenticate}
+          >
+            Disconnect Wallet
+          </button>
         )}
       </div>
     </div>

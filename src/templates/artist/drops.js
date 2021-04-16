@@ -18,16 +18,20 @@ export default ({ data }) => {
   const [drop, setDrop] = useState(null);
   const [bidTransaction, setBidTransaction] = useState(null);
   //   console.log(drop, bidTransaction);
+  console.log(dropInfo);
   useEffect(() => {
     async function fetchDrop() {
-      //   console.log("response");
+      console.log("response");
       const response = await fcl.send([
         fcl.script(fetchVersusDrop),
-        sdk.args([sdk.arg(dropInfo.id, t.Address)]),
+        sdk.args([
+          sdk.arg(dropInfo.marketplaceAccount, t.Address),
+          sdk.arg(parseInt(dropInfo.id), t.UInt64),
+        ]),
       ]);
-      //   console.log(response);
+      console.log(response);
       const dropResponse = await fcl.decode(response);
-      //   console.log(dropResponse);
+      console.log(dropResponse);
       setDrop(dropResponse);
       setBidTransaction(null); //we mark that the current transaction has been taken into account
     }
@@ -36,7 +40,7 @@ export default ({ data }) => {
         fetchDrop();
       }, 5000);
     }
-  }, [drop, bidTransaction]);
+  }, [dropInfo.id, bidTransaction]);
   return (
     <Main>
       {drop ? (
@@ -63,6 +67,7 @@ export const query = graphql`
         node {
           context {
             id
+            marketplaceAccount
             title
             artist
             handle

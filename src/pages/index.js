@@ -11,7 +11,6 @@ import Newsletter from "../components/home/Newsletter";
 const Home = () => {
   return (
     <Main>
-      <FeaturedDrop />
       <Landing />
       <WhatsDifferent />
       <NotRewarded />

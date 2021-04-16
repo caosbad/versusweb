@@ -35,6 +35,14 @@ module.exports = {
       __key: "images",
     },
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://art.us1.list-manage.com/subscribe/post?u=40a0977850285ef1131ddbf9e&id=f29d57a2fa",
+        timeout: 3500,
+      },
+    },
+    {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {

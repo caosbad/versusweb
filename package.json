@@ -13,15 +13,18 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "dev-wallet": "PK=bf9db4706c2fdb9011ee7e170ccac492f05427b96ab41d8bf2d8c58443704b76 fcl-wallet"
+    "dev-wallet": "PK=06f099219e55fb9943cd508aa13c54d99ced321cd3cfd8d5b1b7f72ae272c7ab FLOW_ACCOUNT_PUBLIC_KEY=40e26a2bab19cf7818e423dc49e122f9205e7978447cfedeef09e1130486bdc7e4fa7878a34d713888c0f9492fc810605e1b700a2dd7452d1d3e171eee64e1fa FLOW_ACCOUNT_ADDRESS=0x61b13b57708019fb fcl-wallet"
   },
   "dependencies": {
     "@improbable-eng/grpc-web": "^0.12.0",
-    "@onflow/fcl": "^0.0.67",
+    "@onflow/fcl": "^0.0.68-alpha.18",
+    "@onflow/sdk": "^0.0.44",
+    "@onflow/sdk-send": "^0.0.11",
     "@onflow/types": "^0.0.4",
     "gatsby": "^3.0.1",
     "gatsby-plugin-google-analytics": "^3.1.0",
     "gatsby-plugin-image": "^1.1.1",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^3.1.0",
     "gatsby-plugin-postcss": "^4.1.0",
     "gatsby-plugin-react-helmet": "^4.1.0",
@@ -47,7 +50,6 @@
     "stream-http": "^3.1.1"
   },
   "devDependencies": {
-    "@onflow/dev-wallet": "^0.0.10",
     "tailwindcss": "^2.0.4"
   }
 }
