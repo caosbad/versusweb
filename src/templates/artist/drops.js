@@ -9,7 +9,7 @@ import Main from "../../layouts/Main";
 import ArtistHeader from "../../components/artist/ArtistHeader";
 import ArtistSocial from "../../components/artist/ArtistSocial";
 import DropModule from "../../components/drops/DropModule";
-import { fetchVersusDrop } from "../../pages/artist/transactions";
+import { fetchVersusDrop } from "../../components/artist/transactions";
 import Loading from "../../components/general/Loading";
 
 export default ({ data }) => {
