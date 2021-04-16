@@ -1,10 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 import Main from "../layouts/Main";
 
 const FAQ = () => {
   return (
     <Main>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className="py-12 bg-white">
         <div className="container">
           <h1 className="text-4xl font-bold font-lato mt-4 mb-1">

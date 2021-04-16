@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 import Main from "../layouts/Main";
 import FeaturedDrop from "../components/home/FeaturedDrop";
@@ -11,6 +12,9 @@ import Newsletter from "../components/home/Newsletter";
 const Home = () => {
   return (
     <Main>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Landing />
       <WhatsDifferent />
       <NotRewarded />
