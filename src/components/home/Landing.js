@@ -54,7 +54,7 @@ const Landing = () => {
               type="email"
               placeholder="Email"
               name="email"
-              className="bg-white border-none font-semibold mb-4 outline-none placeholder-black-200 px-8 py-3 rounded-full sm:mb-0 text-black-500 text-lg w-full"
+              className="bg-white border-none font-semibold outline-none placeholder-black-200 px-8 py-3 rounded-full text-black-500 text-lg w-full"
             />
             <input
               type="submit"
