@@ -16,7 +16,7 @@
     "dev-wallet": "PK=06f099219e55fb9943cd508aa13c54d99ced321cd3cfd8d5b1b7f72ae272c7ab FLOW_ACCOUNT_PUBLIC_KEY=40e26a2bab19cf7818e423dc49e122f9205e7978447cfedeef09e1130486bdc7e4fa7878a34d713888c0f9492fc810605e1b700a2dd7452d1d3e171eee64e1fa FLOW_ACCOUNT_ADDRESS=0x61b13b57708019fb fcl-wallet"
   },
   "dependencies": {
-    "@improbable-eng/grpc-web": "^0.12.0",
+    "@improbable-eng/grpc-web": "^0.14.0",
     "@onflow/fcl": "^0.0.68-alpha.18",
     "@onflow/sdk": "^0.0.44",
     "@onflow/sdk-send": "^0.0.11",

@@ -27,16 +27,18 @@ const getWrittenTimer = (start, end) => {
   } else return false;
 };
 
-const DropDetails = ({ drop, dropInfo }) => {
+const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [counter, setCounter] = useState(null);
   useEffect(() => {
-    const timeUntil = moment.unix(drop.startTime).diff(moment());
-    if (timeUntil > 0) {
-      const timer = getWrittenTimer(moment(), moment.unix(drop.startTime));
-      setCounter(`Ends in ${timer}`);
-    } else {
-      const timer = getWrittenTimer(moment(), moment.unix(drop.endTime));
-      setCounter(`Ends in ${timer}`);
+    if (drop) {
+      const timeUntil = moment.unix(drop.startTime).diff(moment());
+      if (timeUntil > 0) {
+        const timer = getWrittenTimer(moment(), moment.unix(drop.startTime));
+        setCounter(`Ends in ${timer}`);
+      } else {
+        const timer = getWrittenTimer(moment(), moment.unix(drop.endTime));
+        setCounter(`Ends in ${timer}`);
+      }
     }
   }, [drop]);
   return (

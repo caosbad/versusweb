@@ -6,8 +6,7 @@ import ArtistTabs from "./ArtistTabs";
 import { withPrefix } from "gatsby";
 
 const ArtistHeader = ({ dropInfo }) => {
-  console.log(dropInfo, "asdas");
-  const { artist, smallImage, handle } = dropInfo;
+  const { artist, smallImage, handle } = dropInfo || {};
   return (
     <div className="h-96 container flex flex-col sm:justify-center relative">
       <div className="flex flex-col items-center justify-center text-center mt-4 sm:mt-0">
@@ -21,7 +20,7 @@ const ArtistHeader = ({ dropInfo }) => {
         <p className="text-lg font-lato">{handle}</p>
       </div>
       <div className="absolute bottom-4 w-full left-0 px-6 md:px-24">
-        <ArtistTabs dropInfo={dropInfo} />
+        {artist && <ArtistTabs dropInfo={dropInfo} />}
       </div>
     </div>
   );
