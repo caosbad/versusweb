@@ -33,7 +33,8 @@ export default ({ data }) => {
       const dropResponse = await fcl.decode(response);
       console.log(dropResponse);
       setDrop(dropResponse);
-      setBidTransaction(null); //we mark that the current transaction has been taken into account
+      setBidTransaction(null);
+      //we mark that the current transaction has been taken into account
     }
     if (drop == null || bidTransaction != null) {
       setInterval(() => {

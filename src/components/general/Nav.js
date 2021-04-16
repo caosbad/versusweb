@@ -21,8 +21,9 @@ const Nav = ({ user }) => {
             className="standard-button small-button"
             role="button"
             aria-label="Connect Wallet"
+            onClick={fcl.authenticate}
           >
-            Coming Soon
+            Connect Wallet
           </button>
         ) : (
           <button
