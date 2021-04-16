@@ -43,9 +43,13 @@ const Footer = () => {
           <div>
             <h5 className="text-lg font-lato">Useful Links</h5>
             <div className="mt-2 flex flex-col">
-              <Link className="mb-2" to="/contact">
+              <a
+                className="mb-2"
+                href="mailto:support@versus-flow.art"
+                target="_blank"
+              >
                 Contact Us
-              </Link>
+              </a>
               <Link className="mb-2" to="/faq">
                 What is Versus?
               </Link>
@@ -55,6 +59,13 @@ const Footer = () => {
                 target="_blank"
               >
                 Discord
+              </a>
+              <a
+                className="mb-2"
+                href="https://capturinginsights.typeform.com/to/kf9JZtdY"
+                target="_blank"
+              >
+                Artist Application
               </a>
               <Link className="mb-2" to="/privacy">
                 Privacy policy
