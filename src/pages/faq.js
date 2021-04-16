@@ -15,26 +15,26 @@ const FAQ = () => {
             Frequently Asked Questions{" "}
           </h1>
           <div className="mt-8">
-            <h2 className="text-xl font-semibold mb-4">What is SuperRare?</h2>
+            <h2 className="text-xl font-semibold mb-4">What is Versus?</h2>
             <p className="mb-4">
-              SuperRare is a marketplace to collect and trade unique,
+              Versus is a marketplace to collect and trade unique,
               single-edition digital artworks. Each artwork is authentically
               created by an artist in the network, and tokenized as a
               crypto-collectible digital item that you can own and trade.
             </p>
             <p className="mb-4">
-              You can think of SuperRare like Instagram meets Christies. A new
-              way to interact with art, culture, and collecting on the internet!
+              You can think of Versus like Instagram meets Christies. A new way
+              to interact with art, culture, and collecting on the internet!
             </p>
             <h2 className="text-xl font-semibold mb-4">
               What is CryptoArt and how is it valuable?
             </h2>
             <p className="mb-4">
-              Each artwork on SuperRare is a digital collectible– a digital
-              object secured by cryptography and tracked on the blockchain.
-              That’s just a fancy way of saying they’re provably scarce items
-              that can be collected, and that hold value just like
-              cryptocurrencies like ether and bitcoin.
+              Each artwork on Versus is a digital collectible– a digital object
+              secured by cryptography and tracked on the blockchain. That’s just
+              a fancy way of saying they’re provably scarce items that can be
+              collected, and that hold value just like cryptocurrencies like
+              ether and bitcoin.
             </p>
             <h2 className="text-xl font-semibold mb-4">
               Why build a social network for CryptoArt?
@@ -56,11 +56,11 @@ const FAQ = () => {
               collecting.
             </p>
             <h2 className="text-xl font-semibold mb-4">
-              Do I need cryptocurrency to buy items on SuperRare?
+              Do I need cryptocurrency to buy items on Versus?
             </h2>
             <p className="mb-4">
               Yes, all transactions are made using ether, the native
-              cryptocurrency to the Ethereum network, which powers SuperRare.
+              cryptocurrency to the Ethereum network, which powers Versus.
               Coinbase is an easy place to buy ether using a bank account if you
               haven’t used cryptocurrencies before.
             </p>
@@ -68,9 +68,9 @@ const FAQ = () => {
               How does it work for creators?
             </h2>
             <p className="mb-4">
-              SuperRare is still in early access, onboarding only a small number
-              of hand-picked artists. You can use this form to submit your
-              artist profile and get on our radar for our full launch next year.
+              Versus is still in early access, onboarding only a small number of
+              hand-picked artists. You can use this form to submit your artist
+              profile and get on our radar for our full launch next year.
             </p>
             <h2 className="text-xl font-semibold mb-4">
               Are there marketplace fees?
@@ -109,10 +109,10 @@ const FAQ = () => {
               record stores today.
             </p>
             <h2 className="text-xl font-semibold mb-4">
-              What's the technology behind SuperRare?
+              What's the technology behind Versus?
             </h2>
             <p className="mb-4">
-              SuperRare is a peer-to-peer marketplace for non-fungible tokens
+              Versus is a peer-to-peer marketplace for non-fungible tokens
               (ERC-721 NFTs) built on Ethereum.
             </p>
           </div>
