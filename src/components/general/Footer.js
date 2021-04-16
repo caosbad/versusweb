@@ -24,10 +24,8 @@ const Footer = () => {
               Ready to get started?
             </h2>
             <p className="mt-2 font-light w-10/12">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Versus is a novel art marketplace that works to empower the artist
+              and the collector.
             </p>
           </div>
           <div className="mt-6">

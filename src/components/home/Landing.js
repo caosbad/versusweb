@@ -69,7 +69,7 @@ const Landing = () => {
             *By entering your details you are signing up to our privacy policy
           </span>
         </div>
-        <div className="grid grid-flow-col grid-rows-5 grid-cols-2 sm:grid-cols-3 gap-4 h-96 mt-12 md:mt-0">
+        <div className="hidden grid-flow-col grid-rows-5 grid-cols-2 sm:grid-cols-3 gap-4 h-96 mt-12 md:mt-0">
           <div className="rounded row-span-3">
             <img src={hero1} className="object-cover h-full w-full rounded" />
           </div>
