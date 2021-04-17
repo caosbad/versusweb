@@ -3,7 +3,7 @@ import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import * as sdk from "@onflow/sdk";
 import { graphql } from "gatsby";
-import { get } from "lodash";
+import { get, clone } from "lodash";
 
 import Main from "../../layouts/Main";
 import ArtistHeader from "../../components/artist/ArtistHeader";
@@ -16,7 +16,6 @@ export default ({ data }) => {
   console.log(data, "data");
   const dropInfo = get(data, "allSitePage.edges[0].node.context");
   const [drop, setDrop] = useState(null);
-  const [bidTransaction, setBidTransaction] = useState(null);
   //   console.log(drop, bidTransaction);
   console.log(dropInfo);
   useEffect(() => {
@@ -24,24 +23,22 @@ export default ({ data }) => {
       console.log("response");
       const response = await fcl.send([
         fcl.script(fetchVersusDrop),
-        sdk.args([
-          sdk.arg(dropInfo.marketplaceAccount, t.Address),
-          sdk.arg(parseInt(dropInfo.id), t.UInt64),
+        fcl.args([
+          fcl.arg(dropInfo.marketplaceAccount, t.Address),
+          fcl.arg(parseInt(dropInfo.id), t.UInt64),
         ]),
       ]);
       console.log(response);
       const dropResponse = await fcl.decode(response);
       console.log(dropResponse);
       setDrop(dropResponse);
-      setBidTransaction(null);
-      //we mark that the current transaction has been taken into account
     }
-    if (drop == null || bidTransaction != null) {
-      setInterval(() => {
-        fetchDrop();
-      }, 5000);
+    if (drop == null) {
+      // setInterval(() => {
+      fetchDrop();
+      // }, 5000);
     }
-  }, [dropInfo.id, bidTransaction]);
+  }, [dropInfo.id]);
   return (
     <Main>
       {drop ? (

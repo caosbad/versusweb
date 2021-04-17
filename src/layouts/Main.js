@@ -9,6 +9,7 @@ import icon from "../images/icon.png";
 
 const Main = ({ children }) => {
   const [user, setUser] = useState({ loggedIn: null });
+  console.log(user);
   useEffect(() => fcl.currentUser().subscribe(setUser), []);
   return (
     <div id="main">

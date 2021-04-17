@@ -9,12 +9,12 @@ import UniqueBidBox from "./UniqueBidBox";
 import { useInterval } from "../general/utils";
 
 const DropBids = ({ drop, marketplaceAccount }) => {
-  useInterval(async () => {
-    const latestBlock = await send([getLatestBlock(true)]);
-    // if (!startBlock || !latestBlock) {
-    //   return;
-    // }
-  }, 1000);
+  // useInterval(async () => {
+  // const latestBlock = await send([getLatestBlock(true)]);
+  // if (!startBlock || !latestBlock) {
+  //   return;
+  // }
+  // }, 1000);
   return (
     <div className="max-w-md mx-auto md:mx-0 md:max-w-none md:grid grid-cols-10 items-stretch pt-12 pb-3">
       <div className="col-span-4">

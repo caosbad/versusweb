@@ -30,7 +30,7 @@ const UniqueBidBox = ({ drop, marketplaceAccount }) => {
           fcl.arg(marketplaceAccount, t.Address),
           fcl.arg(parseInt(drop.dropId, 10), t.UInt64),
           fcl.arg(drop.uniqueStatus.edition, t.UInt64),
-          fcl.arg(newBid, t.UFix64),
+          fcl.arg(bid.value, t.UFix64),
         ]),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
