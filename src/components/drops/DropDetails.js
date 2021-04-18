@@ -26,11 +26,6 @@ const getWrittenTimer = (seconds) => {
 const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [counter, setCounter] = useState(null);
   useEffect(() => {
-    console.log(
-      moment.unix(drop.startTime).toDate,
-      moment().toDate(),
-      moment.unix(drop.startTime).diff(moment())
-    );
     if (drop) {
       const timeUntil = parseFloat(drop.startTime) - moment().unix();
       const { timeRemaining } = drop;
