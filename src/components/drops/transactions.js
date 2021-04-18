@@ -64,10 +64,8 @@ export const tx = async (mods = [], opts = {}) => {
   const onError = opts.onError || noop;
   const onComplete = opts.onComplete || noop;
   try {
-    console.log("here");
     onStart();
     var txId = await fcl.send(mods).then(fcl.decode);
-    console.log(txId, "txid");
     console.info(
       `%cTX[${txId}]: ${fvsTx(await fcl.config().get("env"), txId)}`,
       "color:purple;font-weight:bold;font-family:monospace;"

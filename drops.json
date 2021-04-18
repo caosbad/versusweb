@@ -26,5 +26,33 @@
         "link": "/"
       }
     ]
+  },
+  {
+    "id": "2",
+    "marketplaceAccount": "0x8fdf1e905c437b99",
+    "title": "Close Shave",
+    "artist": "Kinger9999",
+    "handle": "@vincekamp",
+    "smallImage": "/drops/closeshave/prof.png",
+    "featuredImage": "/drops/closeshave/preview.png",
+    "aboutArtist": "Vince has made a name for himself in the traditional art world through painting tattoed underworld figures and gangsters. He has never before launched an artwork on a NFT platform, and we look forward to seeing what he brings to his gensis drop! If the unique side wins Vincent’s auction the winnner will have the option to receive Vince’s physical painting.",
+    "recentWork": [
+      {
+        "image": "/drops/closeshave/piece1.png",
+        "title": "Close Shave",
+        "description": "Vince has made a name for himself in the traditional art world through painting tattoed underworld.",
+        "link": "/"
+      },
+      {
+        "image": "/drops/closeshave/piece2.png",
+        "title": "Close Shave",
+        "link": "/"
+      },
+      {
+        "image": "/drops/closeshave/piece3.png",
+        "title": "Close Shave",
+        "link": "/"
+      }
+    ]
   }
 ]

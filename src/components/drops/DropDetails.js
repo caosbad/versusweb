@@ -7,15 +7,11 @@ import { get } from "lodash";
 import piece1 from "../../images/piece1.png";
 import { withPrefix } from "gatsby";
 
-const getWrittenTimer = (start, end) => {
-  var duration = moment.duration(start.diff(end));
-  var days = duration.asDays();
-  duration.subtract(moment.duration(days, "days"));
-  var hours = duration.hours();
-  duration.subtract(moment.duration(hours, "hours"));
-  var minutes = duration.minutes();
-  duration.subtract(moment.duration(minutes, "minutes"));
-  var seconds = duration.seconds();
+const getWrittenTimer = (seconds) => {
+  var days = Math.floor(seconds / (3600 * 24));
+  var hours = Math.floor((seconds % (3600 * 24)) / 3600);
+  var minutes = Math.floor((seconds % 3600) / 60);
+  var seconds = Math.floor(seconds % 60);
   if (days >= 1) {
     return `${days} days, ${hours} hours`;
   } else if (hours >= 1) {
@@ -30,17 +26,14 @@ const getWrittenTimer = (start, end) => {
 const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [counter, setCounter] = useState(null);
   useEffect(() => {
-    console.log(moment().toDate());
-    console.log(moment.unix(drop.endTime).toDate());
     if (drop) {
       const timeUntil = moment.unix(drop.startTime).diff(moment());
-      const timeUntilEnd = moment.unix(drop.endTime).diff(moment());
-      console.log(timeUntilEnd);
+      const { timeRemaining } = drop;
       if (timeUntil > 0) {
-        const timer = getWrittenTimer(moment(), moment.unix(drop.startTime));
+        const timer = getWrittenTimer(timeUntil);
         setCounter(`Starts in ${timer}`);
-      } else if (timeUntilEnd > 0) {
-        const timer = getWrittenTimer(moment(), moment.unix(drop.endTime));
+      } else if (timeRemaining > 0) {
+        const timer = getWrittenTimer(timeRemaining);
         setCounter(`Ends in ${timer}`);
       } else {
         setCounter("Auction Ended");

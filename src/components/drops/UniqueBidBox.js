@@ -10,7 +10,6 @@ const UniqueBidBox = ({ drop, marketplaceAccount }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
   const [writtenStatus, setWrittenStatus] = useState(null);
-  console.log(marketplaceAccount);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus(null);
@@ -26,7 +25,6 @@ const UniqueBidBox = ({ drop, marketplaceAccount }) => {
           drop.uniqueStatus.minNextBid
         ).toFixed(2)}`
       );
-    console.log(newBid.toFixed(1).toString());
     try {
       await tx(
         [

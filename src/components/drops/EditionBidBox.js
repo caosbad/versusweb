@@ -16,13 +16,11 @@ const EditionBidBox = ({ drop, marketplaceAccount }) => {
     editionsStatuses,
     (e) => e.edition === activeEdition
   );
-  console.log(currentEdition, "currentEdition");
   const totalPrice = reduce(
     editionsStatuses,
     (sum, e) => sum + parseFloat(e.price),
     0
   );
-  console.log(totalPrice);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus(null);
