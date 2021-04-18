@@ -6,7 +6,7 @@ export const fetchVersusDrop = `
 // import NonFungibleToken, Content, Art, Auction, Versus from 0xf8d6e0586b0a20c7
 
 //testnet
-import Auction, Versus from 0x467694dd28ef0a12
+import Auction, Versus from 0x6bb8a74d4db97b46
 
 /*
   Script used to get the first active drop in a versus 

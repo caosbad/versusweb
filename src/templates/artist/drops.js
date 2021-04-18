@@ -34,9 +34,9 @@ export default ({ data }) => {
       setDrop(dropResponse);
     }
     if (drop == null) {
-      // setInterval(() => {
-      fetchDrop();
-      // }, 5000);
+      setInterval(() => {
+        fetchDrop();
+      }, 1000);
     }
   }, [dropInfo.id]);
   return (
@@ -47,7 +47,7 @@ export default ({ data }) => {
           <DropModule
             dropInfo={dropInfo}
             drop={drop}
-            marketplaceAccount={dropInfo.id}
+            marketplaceAccount={dropInfo.marketplaceAccount}
           />
           <ArtistSocial />
         </>

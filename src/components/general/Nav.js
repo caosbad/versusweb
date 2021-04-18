@@ -26,14 +26,19 @@ const Nav = ({ user }) => {
             Connect Wallet
           </button>
         ) : (
-          <button
-            className="standard-button small-button"
-            role="button"
-            aria-label="Disconnect Wallet"
-            onClick={fcl.unauthenticate}
-          >
-            Disconnect Wallet
-          </button>
+          <div className="flex items-center">
+            <span className="mr-2 sm:mr-4 sm:text-lg font-bold">
+              {user.addr}
+            </span>
+            <button
+              className="standard-button small-button"
+              role="button"
+              aria-label="Disconnect Wallet"
+              onClick={fcl.unauthenticate}
+            >
+              Disconnect Wallet
+            </button>
+          </div>
         )}
       </div>
     </div>

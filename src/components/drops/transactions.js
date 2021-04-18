@@ -1,7 +1,7 @@
 import * as fcl from "@onflow/fcl";
 
 // this is for testnet
-// import FungibleToken from 9a0766d93b6608b7
+// import FungibleToken from 0x9a0766d93b6608b7
 // import NonFungibleToken from 0x631e88ae7f1d7c20
 // import Art, Auction, Versus from 0xCONTRACT
 
@@ -10,9 +10,9 @@ import * as fcl from "@onflow/fcl";
 // import Art, Auction, Versus, NonFungibleToken from 0xf8d6e0586b0a20c7
 
 export const bidTransaction = `
-import FungibleToken from 9a0766d93b6608b7
+import FungibleToken from 0x9a0766d93b6608b7
 import NonFungibleToken from 0x631e88ae7f1d7c20
-import Art, Auction, Versus from 0x467694dd28ef0a12
+import Art, Auction, Versus from 0x6bb8a74d4db97b46
 /*
     Transaction to make a bid in a marketplace for the given dropId and auctionId
  */
@@ -90,7 +90,7 @@ export const tx = async (mods = [], opts = {}) => {
     );
     onError(error);
   } finally {
-    await onComplete();
+    await onComplete(txStatus);
   }
 };
 

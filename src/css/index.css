@@ -55,3 +55,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .medium-zoom-image--opened {
   z-index: 99;
 }
+
+.fill-content-photo div {
+  height: 100%;
+}
+
+.status-module-loader svg {
+  height: 150px;
+  width: 150px;
+}
