@@ -8,7 +8,7 @@ import piece1 from "../../images/piece1.png";
 import { withPrefix } from "gatsby";
 
 const getWrittenTimer = (start, end) => {
-  var duration = moment.duration(end.diff(start));
+  var duration = moment.duration(start.diff(end));
   var days = duration.asDays();
   duration.subtract(moment.duration(days, "days"));
   var hours = duration.hours();
@@ -30,14 +30,20 @@ const getWrittenTimer = (start, end) => {
 const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [counter, setCounter] = useState(null);
   useEffect(() => {
+    console.log(moment().toDate());
+    console.log(moment.unix(drop.endTime).toDate());
     if (drop) {
       const timeUntil = moment.unix(drop.startTime).diff(moment());
+      const timeUntilEnd = moment.unix(drop.endTime).diff(moment());
+      console.log(timeUntilEnd);
       if (timeUntil > 0) {
         const timer = getWrittenTimer(moment(), moment.unix(drop.startTime));
-        setCounter(`Ends in ${timer}`);
-      } else {
+        setCounter(`Starts in ${timer}`);
+      } else if (timeUntilEnd > 0) {
         const timer = getWrittenTimer(moment(), moment.unix(drop.endTime));
         setCounter(`Ends in ${timer}`);
+      } else {
+        setCounter("Auction Ended");
       }
     }
   }, [drop]);
@@ -49,7 +55,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
         </h4>
         <h2 className="font-bold text-4xl mt-2">{counter}</h2>
         <div className="my-8">
-          <div className="h-84 sm:h-108 rounded-lg px-8">
+          <div className="h-84 sm:h-108 rounded-lg px-8 fill-content-photo">
             <Zoom>
               <img
                 src={withPrefix(dropInfo.featuredImage)}
