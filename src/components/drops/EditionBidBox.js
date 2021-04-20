@@ -22,6 +22,7 @@ const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
     (sum, e) => sum + parseFloat(e.price),
     0
   );
+  const totalEditions = reduce(editionsStatuses, (sum) => sum + 1, 0);
   const handleSubmit = async (e) => {
     if (ended) return false;
     e.preventDefault();
@@ -131,22 +132,20 @@ const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
         )}
         <div className="flex-1">
           <div className="mb-6">
-            <span className="text-xl font-light text-mediumGrey">? / 25</span>
-            <h3 className="text-2xl font-bold">Own the Edition</h3>
-            <p className="mt-2">Mint number randomized</p>
-            <span className="text-mediumGrey text-sm">
-              Winners recieve a randomly
-              <br /> generated numbered edition
+            <span className="text-xl font-light text-mediumGrey">
+              ? / {totalEditions}
             </span>
+            <h3 className="text-2xl font-bold">Own the Edition</h3>
+            <p className="mt-2 text-transparent">-</p>
           </div>
           <div className="mt-8">
             <p className="text-xl text-mediumGrey opacity-60">
               current bid on #{activeEdition}:
             </p>
             <p className="text-3xl font-bold">
-              F{currentEdition.price.toLocaleString()}
+              F{parseFloat(currentEdition.price).toFixed(2)}
             </p>
-            <p className="text-lg">
+            <p className="text-2xl">
               (Combined total:{" "}
               <span className="font-bold">F{totalPrice.toLocaleString()}</span>)
             </p>

@@ -14,7 +14,7 @@ export default ({ data }) => {
     <Main>
       <ArtistHeader dropInfo={dropInfo} />
       <ArtistProfile dropInfo={dropInfo} />
-      <ArtistSocial />
+      <ArtistSocial dropInfo={dropInfo} />
     </Main>
   );
 };

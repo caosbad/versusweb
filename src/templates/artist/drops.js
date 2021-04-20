@@ -49,7 +49,7 @@ export default ({ data }) => {
             drop={drop}
             marketplaceAccount={dropInfo.marketplaceAccount}
           />
-          <ArtistSocial />
+          <ArtistSocial dropInfo={dropInfo} />
         </>
       ) : (
         <Loading className="w-full min-h-screen" />
@@ -72,6 +72,8 @@ export const query = graphql`
             smallImage
             featuredImage
             aboutArtist
+            twitter
+            instagram
             recentWork {
               image
               title

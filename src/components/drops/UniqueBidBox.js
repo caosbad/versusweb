@@ -125,14 +125,11 @@ const UniqueBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
             <span className="text-xl font-light text-mediumGrey">1/1</span>
             <h3 className="text-2xl font-bold">Own the Unique</h3>
             <p className="mt-2">+ Physical artwork</p>
-            <span className="text-mediumGrey text-sm">
-              Winner recieves a unique 1/1 NFT <br /> and the physical painting
-            </span>
           </div>
           <div className="mt-8">
             <p className="text-xl text-mediumGrey opacity-60">current bid:</p>
             <p className="text-3xl font-bold">
-              F{get(drop, "uniqueStatus.price")}
+              F{parseFloat(get(drop, "uniqueStatus.price")).toFixed(2)}
             </p>
           </div>
         </div>
