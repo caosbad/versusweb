@@ -1,16 +1,18 @@
 import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
+import classnames from "classnames";
 
 import { bidTransaction, tx } from "./transactions";
 import get from "lodash.get";
 import StatusModule from "./StatusModule";
 
-const UniqueBidBox = ({ drop, marketplaceAccount, winning }) => {
+const UniqueBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
   const [writtenStatus, setWrittenStatus] = useState(null);
   const handleSubmit = async (e) => {
+    if (ended) return false;
     e.preventDefault();
     setStatus(null);
     setWrittenStatus(null);
@@ -93,10 +95,27 @@ const UniqueBidBox = ({ drop, marketplaceAccount, winning }) => {
       ) : (
         ""
       )}
-      <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120">
+      <div
+        className={classnames(
+          "bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120 transform",
+          {
+            "md:scale-110": winning && ended,
+            "md:scale-90": !winning && ended,
+            "opacity-60": !winning && ended,
+          }
+        )}
+      >
         {winning ? (
-          <div className="absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 bg-black-500 text-lightGrey py-1 text-sm font-bold rounded-t">
-            Current Winning Bid
+          <div
+            className={classnames(
+              "absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 text-lightGrey py-1 text-sm font-bold rounded-t",
+              {
+                "bg-black-500": !ended,
+                "bg-green-500": ended,
+              }
+            )}
+          >
+            {ended ? "Winner" : `Current Winning Bid`}
           </div>
         ) : (
           ""
@@ -119,7 +138,12 @@ const UniqueBidBox = ({ drop, marketplaceAccount, winning }) => {
         </div>
         <div className="mt-12 sm:mt-0 relative mb-2">
           <form
-            className="relative w-full uppercase flex flex-col sm:block"
+            className={classnames(
+              "relative w-full uppercase flex flex-col sm:block",
+              {
+                "pointer-events-none": ended,
+              }
+            )}
             onSubmit={handleSubmit}
             ref={form}
           >

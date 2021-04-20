@@ -14,6 +14,7 @@ const DropBids = ({ drop, marketplaceAccount }) => {
     (sum, e) => sum + parseFloat(e.price),
     0
   );
+  const ended = !drop.active && drop.winning !== "TIE";
   return (
     <div className="max-w-md mx-auto md:mx-0 md:max-w-none md:grid grid-cols-10 items-stretch pt-12 pb-3">
       <div className="col-span-4">
@@ -21,6 +22,7 @@ const DropBids = ({ drop, marketplaceAccount }) => {
           drop={drop}
           marketplaceAccount={marketplaceAccount}
           winning={uniqueTotal > editionTotal}
+          ended={ended}
         />
       </div>
       <div className="py-6 md:py-0 col-span-2 h-full flex items-center justify-center">
@@ -31,6 +33,7 @@ const DropBids = ({ drop, marketplaceAccount }) => {
           drop={drop}
           marketplaceAccount={marketplaceAccount}
           winning={editionTotal > uniqueTotal}
+          ended={ended}
         />
       </div>
     </div>

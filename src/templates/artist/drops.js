@@ -36,7 +36,7 @@ export default ({ data }) => {
     if (drop == null) {
       setInterval(() => {
         fetchDrop();
-      }, 1000);
+      }, 30000);
     }
   }, [dropInfo.id]);
   return (

@@ -35,8 +35,10 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
       } else if (timeRemaining > 0) {
         const timer = getWrittenTimer(timeRemaining);
         setCounter(`Ends in ${timer}`);
+      } else if (drop.winning === "TIED") {
+        setCounter("Auction Tied!");
       } else {
-        setCounter("Auction Ended");
+        setCounter("This auction has ended");
       }
     }
   }, [drop]);
