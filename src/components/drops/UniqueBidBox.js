@@ -6,7 +6,7 @@ import { bidTransaction, tx } from "./transactions";
 import get from "lodash.get";
 import StatusModule from "./StatusModule";
 
-const UniqueBidBox = ({ drop, marketplaceAccount }) => {
+const UniqueBidBox = ({ drop, marketplaceAccount, winning }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
   const [writtenStatus, setWrittenStatus] = useState(null);
@@ -94,9 +94,13 @@ const UniqueBidBox = ({ drop, marketplaceAccount }) => {
         ""
       )}
       <div className="bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120">
-        <div className="absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 bg-black-500 text-lightGrey py-1 text-sm font-bold rounded-t">
-          Current Winning Bid
-        </div>
+        {winning ? (
+          <div className="absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 bg-black-500 text-lightGrey py-1 text-sm font-bold rounded-t">
+            Current Winning Bid
+          </div>
+        ) : (
+          ""
+        )}
         <div className="flex-1">
           <div className="mb-6">
             <span className="text-xl font-light text-mediumGrey">1/1</span>
