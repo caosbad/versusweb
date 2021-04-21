@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import moment from "moment";
-import { get } from "lodash";
+import { get, set } from "lodash";
 
 import piece1 from "../../images/piece1.png";
 import { withPrefix } from "gatsby";
@@ -29,6 +29,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
     if (drop) {
       const timeUntil = parseFloat(drop.startTime) - moment().unix();
       const { timeRemaining } = drop;
+
       if (timeUntil > 0) {
         const timer = getWrittenTimer(timeUntil);
         setCounter(`Starts in ${timer}`);
@@ -37,26 +38,40 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
         setCounter(`Ends in ${timer}`);
       } else if (drop.winning === "TIE") {
         setCounter(
-          "Auction is currently Tied. For the auction to end one side has to win!"
+          <span>
+            Auction is currently Tied.
+            <br /> For the auction to end one side has to win!
+          </span>
         );
       } else {
-        setCounter("This auction has ended");
+        setCounter(
+          <>
+            This auction has ended
+            <p className="text-lg font-normal mt-2">
+              {drop.settled
+                ? "Versus has finalized this auction"
+                : "Versus has yet to finalize this auction"}
+            </p>
+          </>
+        );
       }
     }
-  }, [drop]);
+  }, []);
   return (
     <div className="text-center">
       <div className="w-124 mx-auto max-w-full">
         <h4 className="font-lato font-bold text-xl">
           {moment.unix(drop.startTime).format("MM.DD.YYYY")}
         </h4>
-        <h2 className="font-bold text-4xl mt-2">{counter}</h2>
+        <h2 className="font-bold max-w-screen-md mt-2 mx-auto text-4xl">
+          {counter}
+        </h2>
         <div className="my-8">
           <div className="h-84 sm:h-108 rounded-lg px-8 fill-content-photo">
             <Zoom>
               <img
                 src={withPrefix(dropInfo.featuredImage)}
-                className="w-full h-full object-cover rounded-lg cursor-pointer"
+                className="w-full h-full object-contain rounded-lg cursor-pointer"
               />
             </Zoom>
           </div>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
-import { find, map, reduce } from "lodash";
+import { find, map, reduce, first } from "lodash";
 import classnames from "classnames";
 
 import { bidTransaction, tx } from "./transactions";
@@ -13,10 +13,9 @@ const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
   const [writtenStatus, setWrittenStatus] = useState(null);
   const [activeEdition, setActiveEdition] = useState(1);
   const { editionsStatuses } = drop;
-  const currentEdition = find(
-    editionsStatuses,
-    (e) => e.edition === activeEdition
-  );
+  const currentEdition =
+    find(editionsStatuses, (e) => e.edition === activeEdition) ||
+    find(editionsStatuses, (e) => e.edition === 0);
   const totalPrice = reduce(
     editionsStatuses,
     (sum, e) => sum + parseFloat(e.price),
@@ -107,11 +106,12 @@ const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
       )}
       <div
         className={classnames(
-          "bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120 transform",
+          "bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col transform",
           {
             "md:scale-110": winning && ended,
             "md:scale-90": !winning && ended,
             "opacity-60": !winning && ended,
+            "sm:h-120": !ended,
           }
         )}
       >
@@ -152,45 +152,63 @@ const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
           </div>
         </div>
         <div className="mt-12 sm:mt-0 mb-2 flex flex-col">
-          <select
-            className="w-3/4 mx-auto mb-3 py-3 px-6 font-lato"
-            onChange={(e) => {
-              setStatus("");
-              setActiveEdition(parseInt(e.currentTarget.value));
-            }}
-          >
-            {map(editionsStatuses, (e, index) => (
-              <option
-                key={`edition-${e.edition}`}
-                value={e.edition}
-                selected={index === 0}
-              >
-                Edition #{e.edition} - F{e.price.toLocaleString()}
-              </option>
-            ))}
-          </select>
-          <form
-            className={classnames(
-              "relative w-full uppercase flex flex-col sm:block",
-              {
-                "pointer-events-none": ended,
-              }
-            )}
-            onSubmit={handleSubmit}
-            ref={form}
-          >
-            <input
-              type="number"
-              placeholder="Enter Bid"
-              name="bid"
-              className="placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none"
-            />
-            <input
-              type="submit"
-              className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
-              value="Place Bid"
-            />
-          </form>
+          {ended ? (
+            <div className="flex flex-col gap-4 mt-4">
+              {map(
+                map(editionsStatuses, (e) => ({ ...e })),
+                (e, index) => (
+                  <p key={`edition-won-${index}`}>
+                    Edition {index + 1} - {e.leader || "No bids"} - F
+                    {parseFloat(e.price).toFixed(2)}
+                  </p>
+                )
+              )}
+            </div>
+          ) : (
+            <select
+              className="w-3/4 mx-auto mb-3 py-3 px-6 font-lato"
+              onChange={(e) => {
+                setStatus("");
+                setActiveEdition(parseInt(e.currentTarget.value));
+              }}
+            >
+              {map(editionsStatuses, (e, index) => (
+                <option
+                  key={`edition-${e.edition}`}
+                  value={e.edition}
+                  selected={index === 0}
+                >
+                  Edition #{e.edition} - F{parseFloat(e.price).toFixed(2)}
+                </option>
+              ))}
+            </select>
+          )}
+          {ended ? (
+            ""
+          ) : (
+            <form
+              className={classnames(
+                "relative w-full uppercase flex flex-col sm:block",
+                {
+                  "pointer-events-none": ended,
+                }
+              )}
+              onSubmit={handleSubmit}
+              ref={form}
+            >
+              <input
+                type="number"
+                placeholder="Enter Bid"
+                name="bid"
+                className="placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none"
+              />
+              <input
+                type="submit"
+                className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
+                value="Place Bid"
+              />
+            </form>
+          )}
           <span className="w-full left-0 absolute top-full mt-2 text-center">
             {writtenStatus}
           </span>

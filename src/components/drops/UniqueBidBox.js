@@ -134,28 +134,37 @@ const UniqueBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
           </div>
         </div>
         <div className="mt-12 sm:mt-0 relative mb-2">
-          <form
-            className={classnames(
-              "relative w-full uppercase flex flex-col sm:block",
-              {
-                "pointer-events-none": ended,
-              }
-            )}
-            onSubmit={handleSubmit}
-            ref={form}
-          >
-            <input
-              type="number"
-              placeholder="Enter Bid"
-              name="bid"
-              className="placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none"
-            />
-            <input
-              type="submit"
-              className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
-              value="Place Bid"
-            />
-          </form>
+          {ended ? (
+            <p>Won by {get(drop, "uniqueStatus.leader")}</p>
+          ) : (
+            <form
+              className={classnames(
+                "relative w-full uppercase flex flex-col sm:block",
+                {
+                  "pointer-events-none": ended,
+                }
+              )}
+              onSubmit={handleSubmit}
+              ref={form}
+            >
+              <input
+                type="number"
+                placeholder="Enter Bid"
+                name="bid"
+                className={classnames(
+                  "placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none",
+                  {
+                    "opacity-80": ended,
+                  }
+                )}
+              />
+              <input
+                type="submit"
+                className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
+                value="Place Bid"
+              />
+            </form>
+          )}
           <span className="w-full left-0 absolute top-full mt-2 text-center">
             {writtenStatus}
           </span>
