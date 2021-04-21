@@ -35,7 +35,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
       } else if (timeRemaining > 0) {
         const timer = getWrittenTimer(timeRemaining);
         setCounter(`Ends in ${timer}`);
-      } else if (drop.winning === "TIED") {
+      } else if (drop.winning === "TIE") {
         setCounter(
           "Auction is currently Tied. For the auction to end one side has to win!"
         );
