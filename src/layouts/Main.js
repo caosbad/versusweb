@@ -18,7 +18,7 @@ const Main = ({ children }) => {
         <link rel="icon" type="image/png" href={icon} sizes="16x16" />
       </Helmet>
       <Nav user={user} />
-      {children}
+      {children(user)}
       <Footer />
     </div>
   );

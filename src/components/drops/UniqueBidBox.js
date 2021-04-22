@@ -13,6 +13,7 @@ const UniqueBidBox = ({
   winning,
   ended,
   hasntStarted,
+  user,
 }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
@@ -140,6 +141,13 @@ const UniqueBidBox = ({
               F{parseFloat(get(drop, "uniqueStatus.price")).toFixed(2)}
             </p>
           </div>
+          {get(user, "addr") === get(drop, "uniqueStatus.leader") ? (
+            <p className="mt-4 text-2xl font-bold">
+              You are the highest bidder
+            </p>
+          ) : (
+            ""
+          )}
         </div>
         <div
           className={classnames("mt-12 sm:mt-0 relative mb-2", {

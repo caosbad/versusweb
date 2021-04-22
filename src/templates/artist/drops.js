@@ -44,19 +44,22 @@ export default ({ data }) => {
   }, [dropInfo.id]);
   return (
     <Main>
-      {drop ? (
-        <>
-          <ArtistHeader dropInfo={dropInfo} />
-          <DropModule
-            dropInfo={dropInfo}
-            drop={drop}
-            marketplaceAccount={dropInfo.marketplaceAccount}
-          />
-          <ArtistSocial dropInfo={dropInfo} />
-        </>
-      ) : (
-        <Loading className="w-full min-h-screen" />
-      )}
+      {(user) => {
+        return drop ? (
+          <>
+            <ArtistHeader dropInfo={dropInfo} />
+            <DropModule
+              dropInfo={dropInfo}
+              drop={drop}
+              marketplaceAccount={dropInfo.marketplaceAccount}
+              user={user}
+            />
+            <ArtistSocial dropInfo={dropInfo} />
+          </>
+        ) : (
+          <Loading className="w-full min-h-screen" />
+        );
+      }}
     </Main>
   );
 };

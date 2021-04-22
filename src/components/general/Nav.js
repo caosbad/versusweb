@@ -27,11 +27,14 @@ const Nav = ({ user }) => {
           </button>
         ) : (
           <div className="flex items-center">
-            <span className="mr-1 sm:text-lg font-bold">{user.addr}</span>
+            <span className="mr-1 sm:text-lg font-bold hidden sm:inline-block">
+              {user.addr}
+            </span>
             {/* todo: add in mainnet with env variable */}
             <a
               href={`https://flow-view-source.com/testnet/account/${user.addr}`}
               target="_blank"
+              className="hidden sm:inline-block"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
-import { find, map, reduce, first } from "lodash";
+import { find, map, reduce, first, get } from "lodash";
 import classnames from "classnames";
 
 import { bidTransaction, tx } from "./transactions";
@@ -13,6 +13,7 @@ const EditionBidBox = ({
   winning,
   ended,
   hasntStarted,
+  user,
 }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
@@ -189,7 +190,8 @@ const EditionBidBox = ({
                   value={e.edition}
                   selected={index === 0}
                 >
-                  Edition #{e.edition} - F{parseFloat(e.price).toFixed(2)}
+                  Edition #{e.edition} - F{parseFloat(e.price).toFixed(2)}{" "}
+                  {get(user, "addr") === e.leader ? "- Your Bid" : ""}
                 </option>
               ))}
             </select>

@@ -6,7 +6,7 @@ import Logo from "../../assets/vslogo.svg";
 import EditionBidBox from "./EditionBidBox";
 import UniqueBidBox from "./UniqueBidBox";
 
-const DropBids = ({ drop, marketplaceAccount }) => {
+const DropBids = ({ drop, marketplaceAccount, user }) => {
   console.log(drop);
   const uniqueTotal = parseFloat(get(drop, "uniqueStatus.price"));
   const editionTotal = reduce(
@@ -25,6 +25,7 @@ const DropBids = ({ drop, marketplaceAccount }) => {
           winning={uniqueTotal > editionTotal}
           ended={ended}
           hasntStarted={hasntStarted}
+          user={user}
         />
       </div>
       <div className="py-6 md:py-0 col-span-2 h-full flex items-center justify-center">
@@ -37,6 +38,7 @@ const DropBids = ({ drop, marketplaceAccount }) => {
           winning={editionTotal > uniqueTotal}
           ended={ended}
           hasntStarted={hasntStarted}
+          user={user}
         />
       </div>
     </div>
