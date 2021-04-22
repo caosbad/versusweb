@@ -29,7 +29,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [timeUntil, setTimeUntil] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(null);
   useEffect(() => {
-    if (parseFloat(drop.timeRemaining) - timeRemaining > 15) {
+    if (parseFloat(drop.timeRemaining) - timeRemaining > 15 && timeRemaining) {
       setTimeRemaining(parseFloat(drop.timeRemaining));
     } else {
       setTimeUntil(parseFloat(drop.startTime) - moment().unix());

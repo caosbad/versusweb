@@ -69,7 +69,6 @@ const EditionBidBox = ({
             setStatus({ msg: "Submitting to Server" });
           },
           async onComplete(status) {
-            console.log(status);
             if (!status) {
               return setStatus({
                 msg:
