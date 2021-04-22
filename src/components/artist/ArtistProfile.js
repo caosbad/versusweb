@@ -22,7 +22,7 @@ const slickSettings = {
 };
 
 const ArtistProfile = ({ dropInfo }) => {
-  const { aboutArtist, recentWork } = dropInfo;
+  const { aboutArtist, recentWork, id } = dropInfo;
   const slides = map(recentWork, (w) => ({
     image: withPrefix(w.image),
   }));
@@ -55,7 +55,10 @@ const ArtistProfile = ({ dropInfo }) => {
         <p className="mt-4 text-mediumGrey mb-12">
           {get(recentWork, "[0].description")}
         </p>
-        <Link to="/" className="standard-button long-button transparent-button">
+        <Link
+          to={`/artist/drops/${id}`}
+          className="standard-button long-button transparent-button"
+        >
           View Drop
         </Link>
       </div>

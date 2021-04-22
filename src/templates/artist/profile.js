@@ -8,7 +8,6 @@ import ArtistProfile from "../../components/artist/ArtistProfile";
 import ArtistSocial from "../../components/artist/ArtistSocial";
 
 export default ({ data }) => {
-  console.log(data);
   const dropInfo = get(data, "allSitePage.edges[0].node.context");
   return (
     <Main>

@@ -7,7 +7,13 @@ import classnames from "classnames";
 import { bidTransaction, tx } from "./transactions";
 import StatusModule from "./StatusModule";
 
-const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
+const EditionBidBox = ({
+  drop,
+  marketplaceAccount,
+  winning,
+  ended,
+  hasntStarted,
+}) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
   const [writtenStatus, setWrittenStatus] = useState(null);
@@ -151,7 +157,11 @@ const EditionBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
             </p>
           </div>
         </div>
-        <div className="mt-12 sm:mt-0 mb-2 flex flex-col">
+        <div
+          className={classnames("mt-12 sm:mt-0 mb-2 flex flex-col", {
+            hidden: hasntStarted,
+          })}
+        >
           {ended ? (
             <div className="flex flex-col gap-4 mt-4">
               {map(

@@ -7,7 +7,13 @@ import { bidTransaction, tx } from "./transactions";
 import get from "lodash.get";
 import StatusModule from "./StatusModule";
 
-const UniqueBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
+const UniqueBidBox = ({
+  drop,
+  marketplaceAccount,
+  winning,
+  ended,
+  hasntStarted,
+}) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
   const [writtenStatus, setWrittenStatus] = useState(null);
@@ -133,7 +139,11 @@ const UniqueBidBox = ({ drop, marketplaceAccount, winning, ended }) => {
             </p>
           </div>
         </div>
-        <div className="mt-12 sm:mt-0 relative mb-2">
+        <div
+          className={classnames("mt-12 sm:mt-0 relative mb-2", {
+            hidden: hasntStarted,
+          })}
+        >
           {ended ? (
             <p>Won by {get(drop, "uniqueStatus.leader")}</p>
           ) : (

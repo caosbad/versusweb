@@ -25,11 +25,19 @@ const getWrittenTimer = (seconds) => {
 
 const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [counter, setCounter] = useState(null);
+  const [timeUntil, setTimeUntil] = useState(null);
+  const [timeRemaining, setTimeRemaining] = useState(null);
   useEffect(() => {
-    if (drop) {
-      const timeUntil = parseFloat(drop.startTime) - moment().unix();
-      const { timeRemaining } = drop;
-
+    setTimeUntil(parseFloat(drop.startTime) - moment().unix());
+    setTimeRemaining(parseFloat(drop.timeRemaining));
+    const timer = setInterval(() => {
+      setTimeUntil((t) => t - 1);
+      setTimeRemaining((t) => t - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+  useEffect(() => {
+    if (drop && timeUntil) {
       if (timeUntil > 0) {
         const timer = getWrittenTimer(timeUntil);
         setCounter(`Starts in ${timer}`);
@@ -56,7 +64,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
         );
       }
     }
-  }, []);
+  }, [timeRemaining]);
   return (
     <div className="text-center">
       <div className="w-124 mx-auto max-w-full">

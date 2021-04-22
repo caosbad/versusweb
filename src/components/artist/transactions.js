@@ -19,3 +19,12 @@ pub fun main(marketplaceAddress:Address, dropID: UInt64) : Versus.DropStatus {
     return versus.getStatus(dropId: dropID)
 }
 `;
+
+export const fetchVersusArt = `
+//testnet
+import Art from 0xbc08417e9d472f2e
+
+pub fun main(marketplaceAddress:Address, artId: UInt64) : String? {
+  return Art.getContentForArt(address: marketplaceAddress, artId: artId)
+}
+`;
