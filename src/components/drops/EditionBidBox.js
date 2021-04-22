@@ -71,7 +71,8 @@ const EditionBidBox = ({
             console.log(status);
             if (!status) {
               return setStatus({
-                msg: "You have cancelled the bid",
+                msg:
+                  "You have either been outbid or your bid has been cancelled. Please try again.",
                 allowClose: true,
               });
             }
