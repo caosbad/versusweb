@@ -3,6 +3,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import moment from "moment";
 import { get, set } from "lodash";
+import classnames from "classnames";
 
 import piece1 from "../../images/piece1.png";
 import { withPrefix } from "gatsby";
@@ -65,13 +66,21 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
       }
     }
   }, [timeRemaining]);
+  const ended = !drop.active && drop.winning !== "TIE";
   return (
     <div className="text-center">
       <div className="w-124 mx-auto max-w-full">
         <h4 className="font-lato font-bold text-xl">
           {moment.unix(drop.startTime).format("MM.DD.YYYY")}
         </h4>
-        <h2 className="font-bold max-w-screen-md mt-2 mx-auto text-4xl">
+        <h2
+          className={classnames(
+            "font-bold max-w-screen-md mt-2 mx-auto text-4xl",
+            {
+              "text-red": !ended && timeRemaining <= 600,
+            }
+          )}
+        >
           {counter}
         </h2>
         <div className="my-8">

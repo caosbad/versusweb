@@ -40,6 +40,7 @@ module.exports = {
       green: {
         500: "#27AE60",
       },
+      red: "#ff4365",
       white: "#ffffff",
       transparent: "transparent",
       lightGrey: "#FAFAFA",
