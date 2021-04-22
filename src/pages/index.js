@@ -12,15 +12,19 @@ import Newsletter from "../components/home/Newsletter";
 const Home = () => {
   return (
     <Main>
-      <Helmet>
-        <title>Home</title>
-      </Helmet>
-      <FeaturedDrop />
-      <Landing />
-      <WhatsDifferent />
-      <NotRewarded />
-      <MeetTheArtists />
-      <Newsletter />
+      {() => (
+        <>
+          <Helmet>
+            <title>Home</title>
+          </Helmet>
+          <FeaturedDrop />
+          <Landing />
+          <WhatsDifferent />
+          <NotRewarded />
+          <MeetTheArtists />
+          <Newsletter />
+        </>
+      )}
     </Main>
   );
 };

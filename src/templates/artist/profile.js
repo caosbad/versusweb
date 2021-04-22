@@ -11,9 +11,13 @@ export default ({ data }) => {
   const dropInfo = get(data, "allSitePage.edges[0].node.context");
   return (
     <Main>
-      <ArtistHeader dropInfo={dropInfo} />
-      <ArtistProfile dropInfo={dropInfo} />
-      <ArtistSocial dropInfo={dropInfo} />
+      {() => (
+        <>
+          <ArtistHeader dropInfo={dropInfo} />
+          <ArtistProfile dropInfo={dropInfo} />
+          <ArtistSocial dropInfo={dropInfo} />
+        </>
+      )}
     </Main>
   );
 };

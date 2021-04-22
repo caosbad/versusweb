@@ -8,9 +8,13 @@ import ArtistCollection from "../../components/artist/ArtistCollection";
 const Collection = () => {
   return (
     <Main>
-      <ArtistHeader />
-      <ArtistCollection />
-      <ArtistSocial />
+      {() => (
+        <>
+          <ArtistHeader />
+          <ArtistCollection />
+          <ArtistSocial />
+        </>
+      )}
     </Main>
   );
 };
