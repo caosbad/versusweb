@@ -29,14 +29,18 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
   const [timeUntil, setTimeUntil] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(null);
   useEffect(() => {
-    setTimeUntil(parseFloat(drop.startTime) - moment().unix());
-    setTimeRemaining(parseFloat(drop.timeRemaining));
-    const timer = setInterval(() => {
-      setTimeUntil((t) => t - 1);
-      setTimeRemaining((t) => t - 1);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+    if (parseFloat(drop.timeRemaining) - timeRemaining > 15) {
+      setTimeRemaining(parseFloat(drop.timeRemaining));
+    } else {
+      setTimeUntil(parseFloat(drop.startTime) - moment().unix());
+      setTimeRemaining(parseFloat(drop.timeRemaining));
+      const timer = setInterval(() => {
+        setTimeUntil((t) => t - 1);
+        setTimeRemaining((t) => t - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [drop.timeRemaining]);
   useEffect(() => {
     if (drop && timeUntil) {
       if (timeUntil > 0) {

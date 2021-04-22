@@ -61,7 +61,6 @@ const UniqueBidBox = ({
             setStatus({ msg: "Submitting to Server" });
           },
           async onComplete(status) {
-            console.log(status);
             if (!status) {
               return setStatus({
                 msg:
@@ -70,6 +69,9 @@ const UniqueBidBox = ({
               });
             }
             setStatus({ msg: "Bid Succesfully Submitted", allowClose: true });
+            const event = document.createEvent("Event");
+            event.initEvent("bid", true, true);
+            document.dispatchEvent(event);
           },
           async onError(error) {
             if (error) {

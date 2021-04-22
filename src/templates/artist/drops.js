@@ -37,10 +37,21 @@ export default ({ data }) => {
       setDrop(dropResponse);
     }
     if (drop == null) {
-      setInterval(() => {
+      window.fetches = setInterval(() => {
         fetchDrop();
       }, 30000);
     }
+    document.addEventListener(
+      "bid",
+      () => {
+        fetchDrop();
+      },
+      false
+    );
+    return () => {
+      clearInterval(window.fetches);
+      document.removeEventListener("bid", fetchDrop, false);
+    };
   }, [dropInfo.id]);
   return (
     <Main>

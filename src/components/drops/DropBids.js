@@ -7,7 +7,6 @@ import EditionBidBox from "./EditionBidBox";
 import UniqueBidBox from "./UniqueBidBox";
 
 const DropBids = ({ drop, marketplaceAccount, user }) => {
-  console.log(drop);
   const uniqueTotal = parseFloat(get(drop, "uniqueStatus.price"));
   const editionTotal = reduce(
     drop.editionsStatuses,

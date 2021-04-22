@@ -78,6 +78,9 @@ const EditionBidBox = ({
               });
             }
             setStatus({ msg: "Bid Succesfully Submitted", allowClose: true });
+            const event = document.createEvent("Event");
+            event.initEvent("bid", true, true);
+            document.dispatchEvent(event);
           },
           async onError(error) {
             if (error) {
