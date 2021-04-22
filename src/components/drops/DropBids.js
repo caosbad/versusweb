@@ -31,7 +31,7 @@ const DropBids = ({ drop, marketplaceAccount, user }) => {
       <div className="py-8 md:py-0 col-span-2 h-full flex items-center justify-center">
         <Logo className="h-12" />
       </div>
-      <div className="col-span-4 mt-4">
+      <div className="col-span-4 mt-6 sm:mt-0">
         <EditionBidBox
           drop={drop}
           marketplaceAccount={marketplaceAccount}
