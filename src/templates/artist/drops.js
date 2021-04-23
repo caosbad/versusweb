@@ -27,7 +27,6 @@ export default ({ data }) => {
       const response = await fcl.send([
         fcl.script(fetchVersusDrop),
         fcl.args([
-          fcl.arg(dropInfo.marketplaceAccount, t.Address),
           fcl.arg(parseInt(dropInfo.id), t.UInt64),
         ]),
       ]);
@@ -37,6 +36,7 @@ export default ({ data }) => {
       setDrop(dropResponse);
     }
     if (drop == null) {
+			fetchDrop();
       window.fetches = setInterval(() => {
         fetchDrop();
       }, 30000);
