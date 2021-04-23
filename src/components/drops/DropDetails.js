@@ -22,7 +22,7 @@ const getWrittenTimer = (seconds) => {
   };
 };
 
-const DropDetails = ({ drop = {}, dropInfo = {} }) => {
+const DropDetails = ({ drop = {}, dropInfo = {}, art }) => {
   const [counter, setCounter] = useState(null);
   const [timeUntil, setTimeUntil] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(null);
@@ -182,7 +182,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
           <div className="h-84 sm:h-108 rounded-lg px-8 fill-content-photo">
             <Zoom>
               <img
-                src={withPrefix(dropInfo.featuredImage)}
+                src={art}
                 className="w-full h-full object-contain rounded-lg cursor-pointer"
               />
             </Zoom>

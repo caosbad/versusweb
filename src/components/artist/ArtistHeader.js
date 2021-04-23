@@ -8,12 +8,12 @@ import { withPrefix } from "gatsby";
 const ArtistHeader = ({ dropInfo }) => {
   const { artist, smallImage, handle } = dropInfo || {};
   return (
-    <div className="h-96 container flex flex-col sm:justify-center relative">
-      <div className="flex flex-col items-center justify-center text-center mt-4 sm:mt-0">
+    <div className="h-64 container flex flex-col sm:justify-center relative">
+      <div className="flex flex-col items-center justify-center text-center mt-4 sm:mt-0 mb-4">
         <div className="w-20 h-20">
           <img
             src={withPrefix(smallImage)}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-full"
           />
         </div>
         <h1 className="text-2xl font-bold font-lato mt-4 mb-1">{artist}</h1>

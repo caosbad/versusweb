@@ -73,7 +73,6 @@ export const tx = async (mods = [], opts = {}) => {
     onSubmission(txId);
     var unsub = await fcl.tx(txId).subscribe(onUpdate);
     var txStatus = await fcl.tx(txId).onceSealed();
-    console.log(unsub, txStatus, "ut");
     unsub();
     console.info(
       `%cTX[${txId}]: ${fvsTx(await fcl.config().get("env"), txId)}`,

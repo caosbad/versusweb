@@ -16,27 +16,29 @@ import {
 import Loading from "../../components/general/Loading";
 
 export default ({ data }) => {
-  console.log(data, "data");
   const dropInfo = get(data, "allSitePage.edges[0].node.context");
   const [drop, setDrop] = useState(null);
-  //   console.log(drop, bidTransaction);
-  console.log(dropInfo);
+  const [art, setArt] = useState(null);
   useEffect(() => {
     async function fetchDrop() {
-      console.log("response");
       const response = await fcl.send([
         fcl.script(fetchVersusDrop),
-        fcl.args([
-          fcl.arg(parseInt(dropInfo.id), t.UInt64),
-        ]),
+        fcl.args([fcl.arg(parseInt(dropInfo.id), t.UInt64)]),
       ]);
-      console.log(response);
       const dropResponse = await fcl.decode(response);
-      console.log(dropResponse);
       setDrop(dropResponse);
     }
+    async function fetchArt() {
+      const response = await fcl.send([
+        fcl.script(fetchVersusArt),
+        fcl.args([fcl.arg(parseInt(dropInfo.id), t.UInt64)]),
+      ]);
+      const artResponse = await fcl.decode(response);
+      setArt(artResponse);
+    }
     if (drop == null) {
-			fetchDrop();
+      fetchDrop();
+      fetchArt();
       window.fetches = setInterval(() => {
         fetchDrop();
       }, 30000);
@@ -64,6 +66,7 @@ export default ({ data }) => {
               drop={drop}
               marketplaceAccount={dropInfo.marketplaceAccount}
               user={user}
+              art={art}
             />
             <ArtistSocial dropInfo={dropInfo} />
           </>

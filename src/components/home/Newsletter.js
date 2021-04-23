@@ -10,7 +10,6 @@ const Newsletter = () => {
     const { email } = form.current;
     try {
       const result = await addToMailchimp(email.value);
-      console.log(result);
       if (result.result === "success") {
         setStatus("Thanks! You have now been subscribed");
         setTimeout(() => setStatus(""), 10000);

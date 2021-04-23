@@ -26,16 +26,16 @@ const Nav = ({ user }) => {
             Connect Wallet
           </button>
         ) : (
-          <div className="flex items-center">
-            <span className="mr-1 sm:text-lg font-bold hidden sm:inline-block">
-              {user.addr}
-            </span>
-            {/* todo: add in mainnet with env variable */}
+          <div className="flex flex-col-reverse items-center sm:flex-row">
             <a
               href={`https://flow-view-source.com/testnet/account/${user.addr}`}
               target="_blank"
-              className="hidden sm:inline-block"
+              className="flex items-center"
             >
+              <span className="mr-1 sm:text-lg font-bold sm:inline-block underline">
+                {user.addr}
+              </span>
+              {/* todo: add in mainnet with env variable */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

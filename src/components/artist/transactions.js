@@ -16,11 +16,12 @@ pub fun main(dropID: UInt64) : Versus.DropStatus {
 }
 `;
 
+// TODO: remove label from line 25 drop id.
 export const fetchVersusArt = `
 //testnet
 import Versus from 0xe193e719ae2b5853
 
-pub fun main(dropId: UInt64) : String? {
-  return Versus.getArtForDrop(dropId)
+pub fun main(dropId: UInt64) : String {
+  return Versus.getArtForDrop(dropId:dropId)!
 }
 `;

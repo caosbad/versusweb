@@ -1,6 +1,7 @@
 var NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 var drops = require("./drops");
 var path = require("path");
+var fcl = require("@onflow/fcl");
 
 exports.onCreateWebpackConfig = ({
   stage,
