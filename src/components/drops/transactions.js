@@ -81,6 +81,7 @@ export const tx = async (mods = [], opts = {}) => {
     await onSuccess(txStatus);
     return txStatus;
   } catch (error) {
+    console.log("foo");
     console.error(
       `TX[${txId}]: ${fvsTx(await fcl.config().get("env"), txId)}`,
       error

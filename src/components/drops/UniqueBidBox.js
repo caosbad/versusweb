@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import classnames from "classnames";
+import { includes } from "lodash";
 
 import { bidTransaction, tx } from "./transactions";
 import get from "lodash.get";
@@ -54,20 +55,18 @@ const UniqueBidBox = ({
             form.current.reset();
             setStatus({ msg: "Bid processing" });
           },
-          async onSuccess(foo) {
-            setStatus({ msg: "Almost there!" });
-          },
           onSubmission() {
             setStatus({ msg: "Submitting to Server" });
           },
-          async onComplete(status) {
-            if (!status) {
-              return setStatus({
-                msg:
-                  "You have either been outbid or your bid has been cancelled. Please try again.",
-                allowClose: true,
-              });
-            }
+          async onSuccess(status) {
+            console.log(status);
+            // if (!status) {
+            //   return setStatus({
+            //     msg:
+            //       "You have either been outbid or your bid has been cancelled. Please try again.",
+            //     allowClose: true,
+            //   });
+            // }
             setStatus({ msg: "Bid Succesfully Submitted", allowClose: true });
             const event = document.createEvent("Event");
             event.initEvent("bid", true, true);
@@ -76,22 +75,29 @@ const UniqueBidBox = ({
           async onError(error) {
             if (error) {
               const { message } = error;
-              if (message === "Declined: User rejected signature") {
+              if (includes(error, "larger or equal")) {
+                return setStatus({
+                  msg:
+                    "Somebody has probably outbid you while you placed your bid. Try again.",
+                  allowClose: true,
+                });
+              } else if (includes(error, "balance of the")) {
+                return setStatus({
+                  msg: "You do not have enough Flow to make this bid",
+                  allowClose: true,
+                });
+              } else if (message === "Declined: User rejected signature") {
                 return setStatus({
                   msg: "You have rejected the bid",
                   allowClose: true,
                 });
               } else {
                 return setStatus({
-                  msg: "Your bid exceeds your current Flow balance",
+                  msg: `Unexpected error occured: ${error}`,
                   allowClose: true,
                 });
               }
             }
-            setStatus({
-              msg: "There was an error with your bid",
-              allowClose: true,
-            });
           },
         }
       );
