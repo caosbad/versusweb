@@ -11,20 +11,16 @@ import Auction, Versus from 0xe193e719ae2b5853
 /*
   Script used to get the first active drop in a versus 
  */
-pub fun main(marketplaceAddress:Address, dropID: UInt64) : Versus.DropStatus {
-
-    let account = getAccount(marketplaceAddress)
-    let versusCap=account.getCapability<&{Versus.PublicDrop}>(Versus.CollectionPublicPath)!
-    let versus= versusCap.borrow()!
-    return versus.getStatus(dropId: dropID)
+pub fun main(dropID: UInt64) : Versus.DropStatus {
+		return Versus.getDrop(dropID)!
 }
 `;
 
 export const fetchVersusArt = `
 //testnet
-import Art from 0xe193e719ae2b5853
+import Versus from 0xe193e719ae2b5853
 
-pub fun main(marketplaceAddress:Address, artId: UInt64) : String? {
-  return Art.getContentForArt(address: marketplaceAddress, artId: artId)
+pub fun main(dropId: UInt64) : String? {
+  return Versus.getArtForDrop(dropId)
 }
 `;

@@ -70,7 +70,6 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
       }
     }
   }, [timeRemaining]);
-  const ended = !drop.active && drop.winning !== "TIE";
   return (
     <div className="text-center">
       <div className="w-124 mx-auto max-w-full">
@@ -81,7 +80,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
           className={classnames(
             "font-bold max-w-screen-md mt-2 mx-auto text-4xl",
             {
-              "text-red": !ended && timeRemaining <= 600,
+              "text-red": !drop.active && timeRemaining <= 600,
             }
           )}
         >
