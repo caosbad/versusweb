@@ -86,5 +86,35 @@
         "link": "/"
       }
     ]
+  },
+	{
+    "id": "4",
+    "marketplaceAccount": "0xe193e719ae2b5853",
+    "title": "The Bull",
+    "artist": "Kinger9999",
+    "handle": "@kinger",
+    "smallImage": "/drops/thebull/prof.png",
+    "featuredImage": "/drops/versus/versus.png",
+    "twitter": "https://twitter.com/FlowVersus",
+    "instagram": "https://instagram.com/FlowVersus",
+    "aboutArtist": "Kinger has made a name for himself in the traditional art world through painting bulls and chickens. He has never before launched an artwork on a NFT platform, and we look forward to seeing what he brings to his gensis drop! If the unique side wins Kinger's auction the winnner will have the option to receive Kingers’s physical painting.",
+    "recentWork": [
+      {
+        "image": "/drops/versus/versus.png",
+        "title": "Versus",
+        "description": "Kinger has made a name for himself in the traditional art world through painting bulls and chickens.",
+        "link": "/"
+      },
+      {
+        "image": "/drops/versus/versus.png",
+        "title": "Versus",
+        "link": "/"
+      },
+      {
+        "image": "/drops/versus/versus.png",
+        "title": "Versus",
+        "link": "/"
+      }
+    ]
   }
 ]
