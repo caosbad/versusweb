@@ -118,24 +118,27 @@ const EditionBidBox = ({
         className={classnames(
           "bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col transform",
           {
-            "md:scale-110": winning && ended,
-            "md:scale-90": !winning && ended,
             "opacity-60": !winning && ended,
             "sm:h-120": !ended,
           }
         )}
       >
-        {winning ? (
+        {winning || drop.winning === "TIE" ? (
           <div
             className={classnames(
               "absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 text-lightGrey py-1 text-sm font-bold rounded-t",
               {
                 "bg-black-500": !ended,
                 "bg-green-500": ended,
+                "bg-yellow": !ended && drop.winning === "TIE",
               }
             )}
           >
-            {ended ? "Winner" : `Current Winning Bid`}
+            {ended
+              ? "Winner"
+              : drop.winning === "TIE"
+              ? "Tied"
+              : `Current Winning Bid`}
           </div>
         ) : (
           ""

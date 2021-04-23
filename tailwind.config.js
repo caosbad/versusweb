@@ -45,6 +45,7 @@ module.exports = {
       transparent: "transparent",
       lightGrey: "#FAFAFA",
       mediumGrey: "6f6f6f",
+      yellow: "#ffcb77",
     },
     extend: {
       spacing: {

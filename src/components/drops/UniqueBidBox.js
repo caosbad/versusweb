@@ -110,23 +110,26 @@ const UniqueBidBox = ({
         className={classnames(
           "bg-cream-500 text-center p-8 relative w-full rounded-lg flex flex-col sm:h-120 transform",
           {
-            "md:scale-110": winning && ended,
-            "md:scale-90": !winning && ended,
             "opacity-60": !winning && ended,
           }
         )}
       >
-        {winning ? (
+        {winning || drop.winning === "TIE" ? (
           <div
             className={classnames(
               "absolute top-0 transform -translate-y-full left-1/2 -translate-x-1/2 w-10/12 text-lightGrey py-1 text-sm font-bold rounded-t",
               {
                 "bg-black-500": !ended,
                 "bg-green-500": ended,
+                "bg-yellow": !ended && drop.winning === "TIE",
               }
             )}
           >
-            {ended ? "Winner" : `Current Winning Bid`}
+            {ended
+              ? "Winner"
+              : drop.winning === "TIE"
+              ? "Tied"
+              : `Current Winning Bid`}
           </div>
         ) : (
           ""
@@ -135,7 +138,7 @@ const UniqueBidBox = ({
           <div className="mb-6">
             <span className="text-xl font-light text-mediumGrey">1/1</span>
             <h3 className="text-2xl font-bold">Own the Unique</h3>
-            <p className="mt-2">+ Physical artwork</p>
+            <p className="mt-2 text-transparent">-</p>
           </div>
           <div className="mt-8">
             <p className="text-xl text-mediumGrey opacity-60">current bid:</p>
@@ -152,12 +155,12 @@ const UniqueBidBox = ({
           )}
         </div>
         <div
-          className={classnames("mt-12 sm:mt-0 relative mb-2", {
+          className={classnames("mt-12 sm:mt-0 mb-2", {
             hidden: hasntStarted,
           })}
         >
           {ended ? (
-            <p>Won by {get(drop, "uniqueStatus.leader")}</p>
+            <p>Highest bid by {get(drop, "uniqueStatus.leader")}</p>
           ) : (
             <form
               className={classnames(
