@@ -205,13 +205,10 @@ const DropDetails = ({ drop = {}, dropInfo = {}, art }) => {
             This auction has a minimum bid of 10 Flow on the unique side and 1
             Flow on each of the editions.
             <br />
-            Each bid has to be {parseInt(
-              drop.uniqueStatus.bidIncrement,
-              10
-            )}{" "}
-            Flow larger than the previous bid. Bids placed in the last 10
-            minutes of the auction will reset the countdown to 10 minutes
-            remaining.
+            Each bid has to be{" "}
+            {parseInt(get(drop, "uniqueStatus.bidIncrement", 0), 10)} Flow
+            larger than the previous bid. Bids placed in the last 10 minutes of
+            the auction will reset the countdown to 10 minutes remaining.
           </p>
         </div>
       </div>
