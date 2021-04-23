@@ -80,7 +80,7 @@ const DropDetails = ({ drop = {}, dropInfo = {} }) => {
           className={classnames(
             "font-bold max-w-screen-md mt-2 mx-auto text-4xl",
             {
-              "text-red": !drop.ended && timeRemaining <= 600,
+              "text-red": !drop.active && timeRemaining <= 600,
             }
           )}
         >
