@@ -5,7 +5,7 @@ const FeaturedDrop = () => {
   return (
     <div
       className="bg-cover featured-image w-full relative z-20 bg-center"
-      style={{ backgroundImage: `url(${withPrefix("/images/bull.png")})` }}
+      style={{ backgroundImage: `url(${withPrefix("/images/versus.png")})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black-500 backdrop-filter bg-opacity-30" />
       <div className="container py-16 h-full flex flex-col justify-between text-white z-10 relative">
@@ -21,7 +21,7 @@ const FeaturedDrop = () => {
             <span className="font-bold">Now</span>
           </span>
           <Link
-            to="/artist/drops/1"
+            to="/artist/drops/4"
             className="standard-button long-button white-button"
           >
             View Drop
