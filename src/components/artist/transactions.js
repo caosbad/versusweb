@@ -22,6 +22,6 @@ export const fetchVersusArt = `
 import Versus from 0xd5ee212b0fa4a319
 
 pub fun main(dropId: UInt64) : String {
-  return Versus.getArtForDrop(dropId:dropId)!
+  return Versus.getArtForDrop(dropId)!
 }
 `;
