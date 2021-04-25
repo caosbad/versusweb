@@ -212,6 +212,7 @@ const UniqueBidBox = ({
                     "opacity-80": ended,
                   }
                 )}
+                step="0.1"
               />
               <input
                 type="submit"
