@@ -206,7 +206,6 @@ const UniqueBidBox = ({
                 type="number"
                 placeholder="Enter Bid"
                 name="bid"
-                step=".001"
                 className={classnames(
                   "placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none",
                   {
