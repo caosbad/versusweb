@@ -160,7 +160,8 @@ const UniqueBidBox = ({
               F{parseFloat(get(drop, "uniqueStatus.price")).toFixed(2)}
             </p>
           </div>
-          {get(user, "addr") === get(drop, "uniqueStatus.leader") ? (
+          {get(user, "addr") === get(drop, "uniqueStatus.leader") &&
+          get(drop, "uniqueStatus.leader") ? (
             <p className="mt-4 text-2xl font-bold">
               You are the highest bidder
             </p>
