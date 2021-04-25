@@ -14,6 +14,7 @@ import {
   fetchVersusDrop,
 } from "../../components/artist/transactions";
 import Loading from "../../components/general/Loading";
+import { Helmet } from "react-helmet";
 
 export default ({ data }) => {
   const dropInfo = get(data, "allSitePage.edges[0].node.context");
@@ -60,6 +61,7 @@ export default ({ data }) => {
       {(user) => {
         return drop ? (
           <>
+            <Helmet title={`${dropInfo.title} by ${dropInfo.artist}`} />
             <ArtistHeader dropInfo={dropInfo} />
             <DropModule
               dropInfo={dropInfo}
