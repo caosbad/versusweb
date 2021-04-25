@@ -35,35 +35,43 @@ const DropDetails = ({
     Counter = (
       <div className="flex flex-col">
         <h4 className="text-center font-lato font-bold text-xl">Starts In</h4>
-        <div className="flex items-center gap-8 font-lato mx-auto justify-center">
+        <div className="flex items-center font-lato mx-auto justify-center">
           {timer.days ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.days}</span>
-              <span className="font-thin text-base uppercase ml-2">days</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.days}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                days
+              </span>
             </div>
           ) : (
             ""
           )}
           {timer.hours ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.hours}</span>
-              <span className="font-thin text-base uppercase ml-2">hrs</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.hours}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                hrs
+              </span>
             </div>
           ) : (
             ""
           )}
           {timer.minutes ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.minutes}</span>
-              <span className="font-thin text-base uppercase ml-2">mins</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.minutes}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                mins
+              </span>
             </div>
           ) : (
             ""
           )}
           {timer.seconds ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.seconds}</span>
-              <span className="font-thin text-base uppercase ml-2">secs</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                secs
+              </span>
             </div>
           ) : (
             ""
@@ -75,35 +83,43 @@ const DropDetails = ({
     const timer = getWrittenTimer(timeRemaining);
     Counter = (
       <div className="flex flex-col">
-        <div className="flex items-center gap-8 font-lato mx-auto justify-center">
+        <div className="flex items-center font-lato mx-auto justify-center">
           {timer.days ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.days}</span>
-              <span className="font-thin text-base uppercase ml-2">days</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.days}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                days
+              </span>
             </div>
           ) : (
             ""
           )}
           {timer.hours ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.hours}</span>
-              <span className="font-thin text-base uppercase ml-2">hrs</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.hours}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                hrs
+              </span>
             </div>
           ) : (
             ""
           )}
           {timer.minutes ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.minutes}</span>
-              <span className="font-thin text-base uppercase ml-2">mins</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.minutes}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                mins
+              </span>
             </div>
           ) : (
             ""
           )}
           {timer.seconds ? (
-            <div className="flex items-center">
-              <span className="text-4xl">{timer.seconds}</span>
-              <span className="font-thin text-base uppercase ml-2">secs</span>
+            <div className="flex items-center mx-2 sm:mx-4">
+              <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
+              <span className="font-thin text-sm sm:text-base uppercase ml-2">
+                secs
+              </span>
             </div>
           ) : (
             ""
