@@ -13,7 +13,9 @@ const StatusModule = ({ status, close }) => {
           <Logo />
         </div>
         <div className="text-3xl font-bold">{msg}</div>
-        <div className="font-thin mt-4 w-10/12 mx-auto">{subtext}</div>
+        <div className="font-thin mt-4 w-10/12 mx-auto break-all">
+          {subtext}
+        </div>
         <div className="mt-8">
           {allowClose ? (
             <button className="standard-button long-button" onClick={close}>

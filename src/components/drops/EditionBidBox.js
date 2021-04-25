@@ -109,6 +109,12 @@ const EditionBidBox = ({
                   subtext: "You have rejected the bid",
                   allowClose: true,
                 });
+              } else if (includes(error, "invalid argument at index 3")) {
+                return setStatus({
+                  msg: "Bid unsuccessful",
+                  subtext: "This bid exceeds our maximum bid",
+                  allowClose: true,
+                });
               } else {
                 return setStatus({
                   msg: "Bid unsuccessful",
@@ -244,6 +250,7 @@ const EditionBidBox = ({
                 type="number"
                 placeholder="Enter Bid"
                 name="bid"
+                step=".001"
                 className="placeholder-black-200 w-full bg-white text-black-500 font-semibold rounded-full border-none px-8 py-3 outline-none"
               />
               <input
