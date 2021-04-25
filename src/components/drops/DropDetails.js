@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import moment from "moment";
-import { get, set } from "lodash";
+import { get, map } from "lodash";
 import classnames from "classnames";
 
-import piece1 from "../../images/piece1.png";
-import { Link, withPrefix } from "gatsby";
+import { Link } from "gatsby";
 
 export const getWrittenTimer = (seconds) => {
   var days = Math.floor(seconds / (3600 * 24));
@@ -29,9 +28,10 @@ const DropDetails = ({
   timeRemaining,
   timeUntil,
 }) => {
+  const editionsStatuses = map(drop.editionsStatuses, (e) => ({ ...e }));
   let Counter = <></>;
-  if (timeUntil > 0) {
-    const timer = getWrittenTimer(timeUntil);
+  if (timeUntil > 0 || timeRemaining > 0) {
+    const timer = getWrittenTimer(timeUntil > 0 ? timeUntil : timeRemaining);
     Counter = (
       <div className="flex flex-col">
         <h4 className="text-center font-lato font-bold text-xl">Starts In</h4>
@@ -67,51 +67,12 @@ const DropDetails = ({
             ""
           )}
           <div className="flex items-center mx-2 sm:mx-4">
-            <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
-            <span className="font-thin text-sm sm:text-base uppercase ml-2">
-              secs
+            <span className="text-2xl sm:text-4xl">
+              {timer.seconds.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              }) || "00"}
             </span>
-          </div>
-        </div>
-      </div>
-    );
-  } else if (timeRemaining > 0) {
-    const timer = getWrittenTimer(timeRemaining);
-    Counter = (
-      <div className="flex flex-col">
-        <div className="flex items-center font-lato mx-auto justify-center">
-          {timer.days ? (
-            <div className="flex items-center mx-2 sm:mx-4">
-              <span className="text-2xl sm:text-4xl">{timer.days}</span>
-              <span className="font-thin text-sm sm:text-base uppercase ml-2">
-                days
-              </span>
-            </div>
-          ) : (
-            ""
-          )}
-          {timer.hours ? (
-            <div className="flex items-center mx-2 sm:mx-4">
-              <span className="text-2xl sm:text-4xl">{timer.hours}</span>
-              <span className="font-thin text-sm sm:text-base uppercase ml-2">
-                hrs
-              </span>
-            </div>
-          ) : (
-            ""
-          )}
-          {timer.minutes ? (
-            <div className="flex items-center mx-2 sm:mx-4">
-              <span className="text-2xl sm:text-4xl">{timer.minutes}</span>
-              <span className="font-thin text-sm sm:text-base uppercase ml-2">
-                mins
-              </span>
-            </div>
-          ) : (
-            ""
-          )}
-          <div className="flex items-center mx-2 sm:mx-4">
-            <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
             <span className="font-thin text-sm sm:text-base uppercase ml-2">
               secs
             </span>
@@ -179,13 +140,17 @@ const DropDetails = ({
             {get(drop, "metadata.description")}
             <br />
             <br />
-            This auction has a minimum bid of 10 Flow on the unique side and 1
-            Flow on each of the editions.
+            This auction has a minimum bid of{" "}
+            {parseInt(get(drop, "startPrice", 0), 10)} Flow on the unique side
+            and 1 Flow on each of the editions.
             <br />
             Each bid has to be{" "}
             {parseInt(get(drop, "uniqueStatus.bidIncrement", 0), 10)} Flow
-            larger than the previous bid. Bids placed in the last 10 minutes of
-            the auction will reset the countdown to 10 minutes remaining.
+            larger than the previous bid for the unique or{" "}
+            {parseInt(get(editionsStatuses, "[0].bidIncrement", 0), 10)} Flow
+            larger than the previous bid for the editions. Bids placed in the
+            last {dropInfo.increment} minutes of the auction will reset the
+            countdown to {dropInfo.increment} minutes remaining.
           </p>
         </div>
       </div>

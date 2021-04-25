@@ -96,6 +96,7 @@ export const query = graphql`
             aboutArtist
             twitter
             instagram
+            increment
             recentWork {
               image
               title

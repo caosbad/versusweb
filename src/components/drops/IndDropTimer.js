@@ -32,7 +32,12 @@ const IndDropTimer = ({ timeRemaining }) => {
           ""
         )}
         <div className="flex items-center mx-1 sm:mx-2">
-          <span className="text-lg sm:text-2xl">{timer.seconds}</span>
+          <span className="text-lg sm:text-2xl">
+            {timer.seconds.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false,
+            }) || "00"}
+          </span>
           <span className="font-thin text-xs uppercase ml-2">secs</span>
         </div>
       </div>
