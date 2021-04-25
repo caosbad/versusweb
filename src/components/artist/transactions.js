@@ -35,3 +35,10 @@ pub fun main(address:Address) : [Art.ArtData] {
     return Art.getArt(address: address)
 }
 `;
+
+export const fetchOneArt = `
+import Versus, Art from 0xd5ee212b0fa4a319
+
+pub fun main(address:Address, artId:UInt64) : String? {
+  return Art.getContentForArt(address: address, artId: artId)
+}`;

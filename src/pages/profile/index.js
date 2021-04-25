@@ -20,6 +20,7 @@ const Profile = (props) => {
             dropInfo={{
               smallImage: "/images/generic.png",
               artist: addr,
+              isProfile: true,
             }}
           />
           <ArtistCollection addr={addr} />

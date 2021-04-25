@@ -3,36 +3,35 @@ import { Link } from "gatsby";
 import { findIndex, includes, map } from "lodash";
 import { useLocation } from "@reach/router";
 
-const tabs = [
-  {
-    name: "Drops",
-    href: "drops",
-  },
-  {
-    name: "Profile",
-    href: "",
-  },
-  // {
-  //   name: "Collection (33)",
-  //   href: "collection",
-  // },
-  // {
-  //   name: "For Sale",
-  //   href: "forsale",
-  // },
-  // {
-  //   name: "Unlisted",
-  //   href: "unlisted",
-  // },
-];
+let tabs = [];
 
 const ArtistTabs = ({ className = "", dropInfo, ...newProps }) => {
+  if (dropInfo.isProfile) {
+    tabs = [
+      {
+        name: "Collection",
+        href: "collection",
+      },
+    ];
+  } else {
+    tabs = [
+      {
+        name: "Drops",
+        href: "drops",
+      },
+      {
+        name: "Profile",
+        href: "",
+      },
+    ];
+  }
   const location = useLocation();
   const activeTab = findIndex(
     tabs,
     (t) =>
       location.pathname ===
-      `/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}`
+        `/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}` ||
+      (includes(location.pathname, "profile") && t.name === "Collection")
   );
   let finalClass = `${className} w-full flex sm:border-b tab-border relative flex-col sm:flex-row`;
   let tabClassName =
@@ -54,7 +53,11 @@ const ArtistTabs = ({ className = "", dropInfo, ...newProps }) => {
     return (
       <Link
         key={`${t.value}-${index}`}
-        to={`/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}`}
+        to={
+          dropInfo.isProfile
+            ? `#`
+            : `/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}`
+        }
         className={`${tabClassName} ${
           activeTab === index ? "font-lato font-semibold" : "font-sourceSansPro"
         }`}
