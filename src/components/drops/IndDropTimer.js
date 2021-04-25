@@ -6,9 +6,9 @@ const IndDropTimer = ({ timeRemaining }) => {
   const timer = getWrittenTimer(timeRemaining);
   let Counter = (
     <div className="flex flex-col">
-      <div className="flex items-center gap-4 sm:gap-8 font-sourceSansPro mx-auto justify-center">
+      <div className="flex items-center font-sourceSansPro mx-auto justify-center">
         {timer.days ? (
-          <div className="flex items-center">
+          <div className="flex items-center mx-1 sm:mx-2">
             <span className="text-lg sm:text-2xl">{timer.days}</span>
             <span className="font-thin text-xs uppercase ml-2">days</span>
           </div>
@@ -16,7 +16,7 @@ const IndDropTimer = ({ timeRemaining }) => {
           ""
         )}
         {timer.hours ? (
-          <div className="flex items-center">
+          <div className="flex items-center mx-1 sm:mx-2">
             <span className="text-lg sm:text-2xl">{timer.hours}</span>
             <span className="font-thin text-xs uppercase ml-2">hrs</span>
           </div>
@@ -24,7 +24,7 @@ const IndDropTimer = ({ timeRemaining }) => {
           ""
         )}
         {timer.minutes ? (
-          <div className="flex items-center">
+          <div className="flex items-center mx-1 sm:mx-2">
             <span className="text-lg sm:text-2xl">{timer.minutes}</span>
             <span className="font-thin text-xs uppercase ml-2">mins</span>
           </div>
@@ -32,7 +32,7 @@ const IndDropTimer = ({ timeRemaining }) => {
           ""
         )}
         {timer.seconds ? (
-          <div className="flex items-center">
+          <div className="flex items-center mx-1 sm:mx-2">
             <span className="text-lg sm:text-2xl">{timer.seconds}</span>
             <span className="font-thin text-xs uppercase ml-2">secs</span>
           </div>

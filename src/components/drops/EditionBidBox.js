@@ -3,6 +3,7 @@ import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import { find, map, reduce, includes, get } from "lodash";
 import classnames from "classnames";
+import { Link } from "gatsby";
 
 import { bidTransaction, tx } from "./transactions";
 import StatusModule from "./StatusModule";
@@ -191,8 +192,15 @@ const EditionBidBox = ({
                 map(editionsStatuses, (e) => ({ ...e })),
                 (e, index) => (
                   <p key={`edition-won-${index}`}>
-                    Edition {index + 1} - {e.leader || "No bids"} - F
-                    {parseFloat(e.price).toFixed(2)}
+                    Edition {index + 1} -{" "}
+                    {e.leader ? (
+                      <Link to={`/profile/${e.leader}`} className="underline">
+                        {e.leader}
+                      </Link>
+                    ) : (
+                      "No bids"
+                    )}{" "}
+                    - F{parseFloat(e.price).toFixed(2)}
                   </p>
                 )
               )}

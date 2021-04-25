@@ -2,10 +2,10 @@ import React, { useRef, useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import classnames from "classnames";
-import { includes } from "lodash";
+import { includes, get } from "lodash";
+import { Link } from "gatsby";
 
 import { bidTransaction, tx } from "./transactions";
-import get from "lodash.get";
 import StatusModule from "./StatusModule";
 import IndDropTimer from "./IndDropTimer";
 
@@ -175,7 +175,15 @@ const UniqueBidBox = ({
           })}
         >
           {ended ? (
-            <p>Highest bid by {get(drop, "uniqueStatus.leader")}</p>
+            <p>
+              Highest bid by{" "}
+              <Link
+                to={`/profile/${get(drop, "uniqueStatus.leader")}`}
+                className="underline"
+              >
+                {get(drop, "uniqueStatus.leader")}
+              </Link>
+            </p>
           ) : (
             <form
               className={classnames(

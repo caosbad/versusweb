@@ -18,7 +18,7 @@ const Profile = (props) => {
           </Helmet>
           <ArtistHeader
             dropInfo={{
-              smallImage: "/images/generic.png",
+              smallImage: "https://avatars.dicebear.com/api/gridy/awef.svg",
               artist: addr,
               isProfile: true,
             }}
