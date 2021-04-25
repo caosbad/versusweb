@@ -44,9 +44,9 @@ const EditionBidBox = ({
     const newBid = parseFloat(bid.value);
     if (newBid < parseFloat(currentEdition.minNextBid))
       return setWrittenStatus(
-        `Minimum next bid must be at least ${Math.round(
-          parseFloat(currentEdition.minNextBid)
-        )}`
+        `Minimum next bid must be at least ${parseFloat(
+          currentEdition.minNextBid
+        ).toFixed(2)}`
       );
     try {
       await tx(
@@ -179,7 +179,7 @@ const EditionBidBox = ({
               current bid on #{activeEdition}:
             </p>
             <p className="text-3xl font-bold">
-              F{Math.round(parseFloat(currentEdition.price))}
+              F{parseFloat(currentEdition.price).toFixed(2)}
             </p>
             <p className="text-2xl">
               (Combined total:{" "}
@@ -206,7 +206,7 @@ const EditionBidBox = ({
                     ) : (
                       "No bids"
                     )}{" "}
-                    - F{Math.round(parseFloat(e.price))}
+                    - F{parseFloat(e.price).toFixed(2)}
                   </p>
                 )
               )}
@@ -225,7 +225,7 @@ const EditionBidBox = ({
                   value={e.edition}
                   selected={index === 0}
                 >
-                  Edition #{e.edition} - F{Math.round(parseFloat(e.price))}{" "}
+                  Edition #{e.edition} - F{parseFloat(e.price).toFixed(2)}{" "}
                   {get(user, "addr") === e.leader && e.leader
                     ? "- Your Bid"
                     : ""}

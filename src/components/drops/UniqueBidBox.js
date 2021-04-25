@@ -33,9 +33,9 @@ const UniqueBidBox = ({
     const newBid = parseFloat(bid.value);
     if (newBid < parseFloat(drop.uniqueStatus.minNextBid))
       return setWrittenStatus(
-        `Minimum next bid must be at least ${Math.round(
-          parseFloat(drop.uniqueStatus.minNextBid)
-        )}`
+        `Minimum next bid must be at least ${parseFloat(
+          drop.uniqueStatus.minNextBid
+        ).toFixed(2)}`
       );
     try {
       await tx(
@@ -164,7 +164,7 @@ const UniqueBidBox = ({
           <div className="mt-8">
             <p className="text-xl text-mediumGrey opacity-60">current bid:</p>
             <p className="text-3xl font-bold">
-              F{Math.round(parseFloat(get(drop, "uniqueStatus.price")))}
+              F{parseFloat(get(drop, "uniqueStatus.price")).toFixed(2)}
             </p>
           </div>
           {get(user, "addr") === get(drop, "uniqueStatus.leader") &&
