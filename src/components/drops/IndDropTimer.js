@@ -31,14 +31,10 @@ const IndDropTimer = ({ timeRemaining }) => {
         ) : (
           ""
         )}
-        {timer.seconds ? (
-          <div className="flex items-center mx-1 sm:mx-2">
-            <span className="text-lg sm:text-2xl">{timer.seconds}</span>
-            <span className="font-thin text-xs uppercase ml-2">secs</span>
-          </div>
-        ) : (
-          ""
-        )}
+        <div className="flex items-center mx-1 sm:mx-2">
+          <span className="text-lg sm:text-2xl">{timer.seconds}</span>
+          <span className="font-thin text-xs uppercase ml-2">secs</span>
+        </div>
       </div>
     </div>
   );

@@ -66,16 +66,12 @@ const DropDetails = ({
           ) : (
             ""
           )}
-          {timer.seconds ? (
-            <div className="flex items-center mx-2 sm:mx-4">
-              <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
-              <span className="font-thin text-sm sm:text-base uppercase ml-2">
-                secs
-              </span>
-            </div>
-          ) : (
-            ""
-          )}
+          <div className="flex items-center mx-2 sm:mx-4">
+            <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
+            <span className="font-thin text-sm sm:text-base uppercase ml-2">
+              secs
+            </span>
+          </div>
         </div>
       </div>
     );
@@ -114,16 +110,12 @@ const DropDetails = ({
           ) : (
             ""
           )}
-          {timer.seconds ? (
-            <div className="flex items-center mx-2 sm:mx-4">
-              <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
-              <span className="font-thin text-sm sm:text-base uppercase ml-2">
-                secs
-              </span>
-            </div>
-          ) : (
-            ""
-          )}
+          <div className="flex items-center mx-2 sm:mx-4">
+            <span className="text-2xl sm:text-4xl">{timer.seconds}</span>
+            <span className="font-thin text-sm sm:text-base uppercase ml-2">
+              secs
+            </span>
+          </div>
         </div>
       </div>
     );
