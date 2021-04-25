@@ -64,6 +64,12 @@ const Footer = () => {
               >
                 Artist Application
               </a>
+              <Link className="mb-2" to="/faq">
+                FAQ
+              </Link>
+              <Link className="mb-2" to="/technical">
+                Technical Information
+              </Link>
               <Link className="mb-2" to="/privacy">
                 Privacy policy
               </Link>
