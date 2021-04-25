@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 
 import Logo from "../../assets/vsgrey.svg";
 import Facebook from "../../assets/facebook.svg";
-import Twitter from "../../assets/twitter.svg";
-import Instagram from "../../assets/instagram.svg";
+import Twitter from "../../assets/twitterwhite.svg";
+import Instagram from "../../assets/instagramwhite.svg";
 import Youtube from "../../assets/youtube.svg";
 import FlowLogo from "../../assets/flowlogo.svg";
 
@@ -69,20 +69,22 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="">
+          <div className="flex flex-col md:flex-row md:items-center">
             <span>&copy;2021 Versus</span>
-            <div className="ml-16 flex items-center">
-              <a href="" target="_blank">
-                <Facebook className="h-3 fill-current" />
+            <div className="mt-2 md:mt-0 md:ml-16 flex items-center gap-6">
+              <a
+                href="https://twitter.com/FlowVersus"
+                target="_blank"
+                className="cursor-pointer"
+              >
+                <Twitter className="h-6 fill-current" />
               </a>
-              <a href="" target="_blank">
-                <Twitter className="h-3 fill-current" />
-              </a>
-              <a href="" target="_blank">
-                <Instagram className="h-3 fill-current" />
-              </a>
-              <a href="" target="_blank">
-                <Youtube className="h-3 fill-current" />
+              <a
+                href="https://www.instagram.com/versus.flow.art/"
+                target="_blank"
+                className="cursor-pointer"
+              >
+                <Instagram className="h-6 fill-current" />
               </a>
             </div>
           </div>

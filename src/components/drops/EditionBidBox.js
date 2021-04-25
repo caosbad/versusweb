@@ -6,6 +6,7 @@ import classnames from "classnames";
 
 import { bidTransaction, tx } from "./transactions";
 import StatusModule from "./StatusModule";
+import IndDropTimer from "./IndDropTimer";
 
 const EditionBidBox = ({
   drop,
@@ -14,6 +15,7 @@ const EditionBidBox = ({
   ended,
   hasntStarted,
   user,
+  timeRemaining,
 }) => {
   const form = useRef(null);
   const [status, setStatus] = useState(null);
@@ -35,6 +37,9 @@ const EditionBidBox = ({
     setStatus(null);
     setWrittenStatus(null);
     const { bid } = form.current;
+    if (!bid.value) {
+      return setWrittenStatus("Please place a bid");
+    }
     const newBid = parseFloat(bid.value);
     if (newBid < parseFloat(currentEdition.minNextBid))
       return setWrittenStatus(
@@ -60,47 +65,53 @@ const EditionBidBox = ({
         {
           onStart() {
             form.current.reset();
-            setStatus({ msg: "Bid processing" });
+            setStatus({
+              msg: "Bid processing",
+              subtext: "Please wait while we submit the bid to the server.",
+            });
           },
           async onSuccess(status) {
-            console.log(status);
-            // if (!status) {
-            //   return setStatus({
-            //     msg:
-            //       "You have either been outbid or your bid has been cancelled. Please try again.",
-            //     allowClose: true,
-            //   });
-            // }
-            setStatus({ msg: "Bid Succesfully Submitted", allowClose: true });
+            setStatus({
+              msg: "Bid Succesfully Submitted",
+              subtext: "Your bid was successfully submitted.",
+              allowClose: true,
+            });
             const event = document.createEvent("Event");
             event.initEvent("bid", true, true);
             document.dispatchEvent(event);
           },
           onSubmission() {
-            setStatus({ msg: "Submitting to Server" });
+            setStatus({
+              msg: "Submitting to Server",
+              subtext: "Please wait while we submit the bid to the server.",
+            });
           },
           async onError(error) {
             if (error) {
               const { message } = error;
               if (includes(error, "larger or equal")) {
                 return setStatus({
-                  msg:
+                  msg: "Bid unsuccessful",
+                  subtext:
                     "Somebody has probably outbid you while you placed your bid. Try again.",
                   allowClose: true,
                 });
               } else if (includes(error, "balance of the")) {
                 return setStatus({
-                  msg: "You do not have enough Flow to make this bid",
+                  msg: "Bid unsuccessful",
+                  subtext: "You do not have enough Flow to make this bid",
                   allowClose: true,
                 });
               } else if (message === "Declined: User rejected signature") {
                 return setStatus({
-                  msg: "You have rejected the bid",
+                  msg: "Bid unsuccessful",
+                  subtext: "You have rejected the bid",
                   allowClose: true,
                 });
               } else {
                 return setStatus({
-                  msg: `Unexpected error occured: ${error}`,
+                  msg: "Bid unsuccessful",
+                  subtext: `Unexpected error occured: ${error}`,
                   allowClose: true,
                 });
               }
@@ -201,7 +212,9 @@ const EditionBidBox = ({
                   selected={index === 0}
                 >
                   Edition #{e.edition} - F{parseFloat(e.price).toFixed(2)}{" "}
-                  {get(user, "addr") === e.leader ? "- Your Bid" : ""}
+                  {get(user, "addr") === e.leader && e.leader
+                    ? "- Your Bid"
+                    : ""}
                 </option>
               ))}
             </select>
@@ -230,13 +243,14 @@ const EditionBidBox = ({
                 className="standard-button small-button mt-2 sm:mt-0 sm:absolute right-0 h-full px-6"
                 value="Place Bid"
               />
+              <span className="w-full left-0 absolute top-full mt-2 text-center text-xs sm:text-base normal-case">
+                {writtenStatus}
+              </span>
             </form>
           )}
-          <span className="w-full left-0 absolute top-full mt-2 text-center">
-            {writtenStatus}
-          </span>
         </div>
       </div>
+      {timeRemaining > 0 ? <IndDropTimer timeRemaining={timeRemaining} /> : ""}
     </>
   );
 };

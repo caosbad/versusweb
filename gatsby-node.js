@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({
   });
 };
 
-exports.createPages = ({ actions }) => {
+exports.createPages = ({ page, actions }) => {
   const { createPage } = actions;
   drops.forEach((d) => {
     console.log(d);
@@ -30,4 +30,13 @@ exports.createPages = ({ actions }) => {
       context: d,
     });
   });
+};
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
+
+  if (page.path.match(/^\/profile/)) {
+    page.matchPath = "/profile/*";
+    createPage(page);
+  }
 };

@@ -16,12 +16,22 @@ pub fun main(dropID: UInt64) : Versus.DropStatus {
 }
 `;
 
-// TODO: remove label from line 25 drop id.
 export const fetchVersusArt = `
 //testnet
 import Versus from 0xd5ee212b0fa4a319
 
 pub fun main(dropId: UInt64) : String {
   return Versus.getArtForDrop(dropId)!
+}
+`;
+
+export const fetchMyArt = `
+/*
+  This script will check an address and print out its FT, NFT and Versus resources
+ */
+import Art from 0xd5ee212b0fa4a319
+
+pub fun main(address:Address) : [Art.ArtData] {
+    return Art.getArt(address: address)
 }
 `;

@@ -61,6 +61,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .status-module-loader svg {
-  height: 150px;
-  width: 150px;
+  height: 60px;
+  width: 60px;
 }
