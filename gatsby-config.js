@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingIds: ["G-TTPJ9LN"],
+        trackingIds: ["G-RQC70X481Z"],
       },
     },
     "gatsby-plugin-react-helmet",
