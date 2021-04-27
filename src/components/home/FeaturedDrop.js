@@ -21,7 +21,7 @@ const FeaturedDrop = () => {
             <span className="font-bold">Now</span>
           </span>
           <Link
-            to="/artist/drops/3"
+            to="/artist/drops/4"
             className="standard-button long-button white-button"
           >
             View Drop
