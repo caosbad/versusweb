@@ -34,7 +34,11 @@ const DropDetails = ({
     const timer = getWrittenTimer(timeUntil > 0 ? timeUntil : timeRemaining);
     Counter = (
       <div className="flex flex-col">
-        <h4 className="text-center font-lato font-bold text-xl">Starts In</h4>
+        {timeUntil > 0 ? (
+          <h4 className="text-center font-lato font-bold text-xl">Starts In</h4>
+        ) : (
+          ""
+        )}
         <div className="flex items-center font-lato mx-auto justify-center">
           {timer.days ? (
             <div className="flex items-center mx-2 sm:mx-4">
