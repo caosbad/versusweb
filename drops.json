@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "id": "1",
+    "marketplaceAccount": "",
+    "title": "",
+    "artist": "",
+    "handle": "",
+    "smallImage": "",
+    "featuredImage": "",
+    "twitter": "",
+    "instagram": "",
+    "aboutArtist": "",
+    "increment": "",
+    "recentWork": [
+      {
+        "image": "/drops/ekaitza/",
+        "title": "",
+        "description": "",
+        "link": "/"
+      },
+      {
+        "image": "/drops/ekaitza/",
+        "title": "",
+        "link": "/"
+      },
+      {
+        "image": "/drops/ekaitza/",
+        "title": "",
+        "link": "/"
+      }
+    ]
+  }
+]

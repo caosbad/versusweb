@@ -1,0 +1,6 @@
+[context.production.environment]
+    ENV = ""
+    ACCESS_NODE = ""
+    WALLET = ""
+    CONTRACT = ""
+    FLOW_ENV = ""
