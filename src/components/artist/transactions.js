@@ -42,3 +42,23 @@ import Versus, Art from 0xCONTRACT
 pub fun main(address:Address, artId:UInt64) : String? {
   return Art.getContentForArt(address: address, artId: artId)
 }`;
+
+export const fetchOneUser = `
+import FungibleToken from 0xFungibleToken
+
+/*
+  This script will check an address and print out its FT, NFT and Versus resources
+ */
+pub fun main(address:Address) : UFix64 {
+    // get the accounts' public address objects
+    let account = getAccount(address)
+    let balance = 0.0
+    
+    if let vault= account.getCapability(/public/flowTokenBalance).borrow<&{FungibleToken.Balance}>() {
+       return vault.balance
+    }
+
+    return balance
+
+}
+`;

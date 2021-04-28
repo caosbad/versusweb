@@ -11,7 +11,7 @@ const FeaturedDrop = () => {
       <div className="container py-16 h-full flex flex-col justify-between text-white z-10 relative">
         <div>
           <h6 className="font-lato font-semibold text-xl">Introducing.</h6>
-          <h2 className="text-8xl font-ibm mt-1 tracking-tighter relative -left-1">
+          <h2 className="text-6xl sm:text-8xl font-ibm mt-1 tracking-tighter relative -left-1">
             Ekaitza
           </h2>
         </div>
