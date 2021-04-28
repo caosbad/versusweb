@@ -4,14 +4,14 @@ import { withPrefix, Link } from "gatsby";
 const FeaturedDrop = () => {
   return (
     <div
-      className="bg-contain featured-image w-full relative z-20 bg-center"
+      className="bg-cover sm:bg-contain featured-image w-full relative z-20 bg-center"
       style={{ backgroundImage: `url(${withPrefix("/images/skull.jpg")})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black-500 backdrop-filter bg-opacity-30" />
       <div className="container py-16 h-full flex flex-col justify-between text-white z-10 relative">
         <div>
           <h6 className="font-lato font-semibold text-xl">Introducing.</h6>
-          <h2 className="text-8xl font-ibm mt-1 tracking-tighter relative -left-1">
+          <h2 className="text-5xl sm:text-8xl font-ibm mt-1 tracking-tighter relative -left-1">
             Ekaitza
           </h2>
         </div>

@@ -37,6 +37,12 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 32rem;
 }
 
+@media screen and (max-width: 640px) {
+  .featured-image {
+    height: 28rem;
+  }
+}
+
 .bigv {
   position: absolute;
   bottom: -80px;
