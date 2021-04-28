@@ -6,7 +6,7 @@ export const fetchVersusDrop = `
 // import NonFungibleToken, Content, Art, Auction, Versus from 0xf8d6e0586b0a20c7
 
 //testnet
-import Auction, Versus from 0xd5ee212b0fa4a319
+import Auction, Versus from 0xCONTRACT
 
 /*
   Script used to get the first active drop in a versus 
@@ -18,7 +18,7 @@ pub fun main(dropID: UInt64) : Versus.DropStatus {
 
 export const fetchVersusArt = `
 //testnet
-import Versus from 0xd5ee212b0fa4a319
+import Versus from 0xCONTRACT
 
 pub fun main(dropId: UInt64) : String {
   return Versus.getArtForDrop(dropId)!
@@ -29,7 +29,7 @@ export const fetchMyArt = `
 /*
   This script will check an address and print out its FT, NFT and Versus resources
  */
-import Art from 0xd5ee212b0fa4a319
+import Art from 0xCONTRACT
 
 pub fun main(address:Address) : [Art.ArtData] {
     return Art.getArt(address: address)
@@ -37,7 +37,7 @@ pub fun main(address:Address) : [Art.ArtData] {
 `;
 
 export const fetchOneArt = `
-import Versus, Art from 0xd5ee212b0fa4a319
+import Versus, Art from 0xCONTRACT
 
 pub fun main(address:Address, artId:UInt64) : String? {
   return Art.getContentForArt(address: address, artId: artId)
