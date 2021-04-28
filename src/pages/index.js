@@ -17,7 +17,7 @@ const Home = () => {
           <Helmet>
             <title>Home</title>
           </Helmet>
-          {/* <FeaturedDrop /> */}
+          <FeaturedDrop />
           <Landing />
           <WhatsDifferent />
           <NotRewarded />
