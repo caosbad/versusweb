@@ -35,6 +35,8 @@ export const query = graphql`
             smallImage
             featuredImage
             aboutArtist
+            twitter
+            instagram
             recentWork {
               image
               title
