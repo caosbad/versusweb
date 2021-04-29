@@ -28,7 +28,7 @@ const Nav = ({ user, balance }) => {
         ) : (
           <div className="flex flex-col-reverse items-center sm:flex-row">
             <a
-              href={`https://flow-view-source.com/mainnet/account/${user.addr}`}
+              href={`https://flowscan.org/account/${user.addr}`}
               target="_blank"
               className="flex items-center order-2 sm:order-none"
             >
