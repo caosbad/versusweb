@@ -1,7 +1,7 @@
 var NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 var drops = require("./drops");
+var testdrops = require("./testdrops");
 var path = require("path");
-var fcl = require("@onflow/fcl");
 
 exports.onCreateWebpackConfig = ({
   stage,
@@ -17,8 +17,10 @@ exports.onCreateWebpackConfig = ({
 
 exports.createPages = ({ page, actions }) => {
   const { createPage } = actions;
-  drops.forEach((d) => {
-    console.log(d);
+  let items = [];
+  if (process.env.ENV === "production") items = drops;
+  else items = testdrops;
+  items.forEach((d) => {
     createPage({
       path: `/artist/drops/${d.id}`,
       component: path.resolve("./src/templates/artist/drops.js"),

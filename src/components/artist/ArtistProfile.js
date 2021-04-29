@@ -55,12 +55,6 @@ const ArtistProfile = ({ dropInfo }) => {
         <p className="mt-4 text-mediumGrey mb-12">
           {get(recentWork, "[0].description")}
         </p>
-        <Link
-          to={`/artist/drops/${id}`}
-          className="standard-button long-button transparent-button"
-        >
-          View Drop
-        </Link>
       </div>
     </div>
   );

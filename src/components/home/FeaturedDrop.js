@@ -21,8 +21,8 @@ const FeaturedDrop = () => {
             <span className="font-bold">10am EST</span>
           </span>
           <Link
-            to="/artist/drops/4"
-            className="standard-button long-button white-button hidden"
+            to="/artist/drops/2"
+            className="standard-button long-button white-button"
           >
             View Drop
           </Link>
