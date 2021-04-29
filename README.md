@@ -13,3 +13,5 @@ Set the following env variables for production:
 - WALLET
 - CONTRACT
 - FLOW_ENV
+- FUNGIBLE_TOKEN
+- NONFUNGIBLE_TOKEN

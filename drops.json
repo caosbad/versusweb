@@ -1,31 +1,31 @@
 [
   {
-    "id": "1",
-    "marketplaceAccount": "",
-    "title": "",
-    "artist": "",
-    "handle": "",
-    "smallImage": "",
+    "id": "2",
+    "marketplaceAccount": "0xd796ff17107bbff6",
+    "title": "Transcendence",
+    "artist": "ekaitza",
+    "handle": "ekaitza",
+    "smallImage": "/drops/ekaitza/preview.jpg",
     "featuredImage": "",
-    "twitter": "",
-    "instagram": "",
-    "aboutArtist": "",
+    "twitter": "https://twitter.com/ekaitza_",
+    "instagram": "https://www.instagram.com/ekait_za",
+    "aboutArtist": "Ekaitza creates detailed cryptoart that draws inspiration from his past as well as a vision for a digital future. He collects and advises on some of the most monumental projects in NFTs. We could not be more excited to have the ability to work with such an influence in the space.",
     "increment": "",
     "recentWork": [
       {
-        "image": "/drops/ekaitza/",
-        "title": "",
+        "image": "/drops/ekaitza/piece1.png",
+        "title": "Ares - Mane Lumen",
         "description": "",
         "link": "/"
       },
       {
-        "image": "/drops/ekaitza/",
-        "title": "",
+        "image": "/drops/ekaitza/piece2.png",
+        "title": "Heracles - Vires in Posterum",
         "link": "/"
       },
       {
-        "image": "/drops/ekaitza/",
-        "title": "",
+        "image": "/drops/ekaitza/piece3.png",
+        "title": "A sudden change in the tide",
         "link": "/"
       }
     ]
