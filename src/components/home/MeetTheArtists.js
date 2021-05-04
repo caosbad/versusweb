@@ -36,7 +36,7 @@ const artists = [
     lastName: "Kamp",
     handle: "@vincekamp",
     text:
-      "Vince has made a name for himself in the traditional art world through painting tattoed underworld figures and gangsters. He has never before launched an artwork on a NFT platform, and we look forward to seeing what he brings to his gensis drop! If the unique side wins Vincent’s auction the winnner will have the option to receive Vince’s physical painting",
+      "Vince has made a name for himself in the traditional art world through painting tattoed underworld figures and gangsters. He has never before launched an artwork on a NFT platform, and we look forward to seeing what he brings to his genesis drop! If the unique side wins Vincent’s auction the winnner will have the option to receive Vince’s physical painting",
     link: "",
   },
 ];
