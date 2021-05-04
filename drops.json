@@ -29,5 +29,37 @@
         "link": "/"
       }
     ]
+  },
+  {
+    "id": "3",
+    "marketplaceAccount": "0xd796ff17107bbff6",
+    "title": "Zebra Forest",
+    "slug": "mankind",
+    "artist": "Mankind",
+    "handle": "Mankind",
+    "smallImage": "/drops/mankind/preview.jpg",
+    "featuredImage": "",
+    "twitter": "https://twitter.com/rhett",
+    "instagram": "https://www.instagram.com/mankind",
+    "aboutArtist": "Mankind is an award winning digital artist with an eminent background in branding, digital art and advertising. He has been educating others of Crypto Art for several years. After a near death experience, a mental existential struggle began that he found echoed the pages of 'Confession' by Leo Tolstoy: “Since death is inevitable, what is the meaning of life?” He found the answer of hope through exploring, creating and sharing.",
+    "increment": "7.5",
+    "recentWork": [
+      {
+        "image": "/drops/mankind/piece1.jpg",
+        "title": "A New Mayday",
+        "description": "",
+        "link": "/"
+      },
+      {
+        "image": "/drops/mankind/piece2.jpg",
+        "title": "Opportunities Unknown",
+        "link": "/"
+      },
+      {
+        "image": "/drops/mankind/piece3.jpg",
+        "title": "Connected Forest",
+        "link": "/"
+      }
+    ]
   }
 ]
