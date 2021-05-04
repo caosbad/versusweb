@@ -45,18 +45,18 @@
     "increment": "7.5",
     "recentWork": [
       {
-        "image": "/drops/mankind/piece1.png",
+        "image": "/drops/mankind/piece1.jpg",
         "title": "A New Mayday",
         "description": "",
         "link": "/"
       },
       {
-        "image": "/drops/mankind/piece2.png",
+        "image": "/drops/mankind/piece2.jpg",
         "title": "Opportunities Unknown",
         "link": "/"
       },
       {
-        "image": "/drops/mankind/piece3.png",
+        "image": "/drops/mankind/piece3.jpg",
         "title": "Connected Forest",
         "link": "/"
       }
