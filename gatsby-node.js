@@ -22,12 +22,12 @@ exports.createPages = ({ page, actions }) => {
   else items = testdrops;
   items.forEach((d) => {
     createPage({
-      path: `/artist/drops/${d.id}`,
+      path: `/artist/drops/${d.slug || d.id}`,
       component: path.resolve("./src/templates/artist/drops.js"),
       context: d,
     });
     createPage({
-      path: `/artist/${d.id}`,
+      path: `/artist/${d.slug || d.id}`,
       component: path.resolve("./src/templates/artist/profile.js"),
       context: d,
     });

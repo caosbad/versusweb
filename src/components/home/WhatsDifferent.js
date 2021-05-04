@@ -106,9 +106,6 @@ const WhatsDifferent = () => {
               different?
             </span>
           </h2>
-          <h3 className="mt-6 leading-6 w-10/12 max-w-full font-sourceSansPro text-xl">
-            Request early access to be included in our inaugural drop.
-          </h3>
         </div>
         <div className="grid sm:grid-cols-2 gap-8 sm:gap-16 mt-12 sm:mt-0">
           {map(features, (f, index) => (
