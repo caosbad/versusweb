@@ -51,17 +51,20 @@ const MeetTheArtists = () => {
             the artists
           </span>
         </h2>
-        <div className="mt-9 grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mt-9 grid sm:grid-cols-2 md:grid-cols-4 gap-8">
           {map(artists, (a, index) => (
-            <div key={`artist-${index}`} className="h-full flex flex-col">
-              <div className="w-full h-48 rounded-t">
+            <div
+              key={`artist-${index}`}
+              className="h-full flex flex-col shadow"
+            >
+              <div className="w-full h-48 rounded-t-lg">
                 <img
                   src={a.image}
                   className="w-full h-full object-cover rounded-t"
                   alt={`${a.firstName} photo`}
                 />
               </div>
-              <div className="p-4 bg-white flex-1 flex flex-col justify-between rounded-b">
+              <div className="p-4 bg-white flex-1 flex flex-col justify-between rounded-b-lg">
                 <div className="pb-4">
                   <h3 className="text-2xl font-lato font-bold">
                     {a.firstName}{" "}
@@ -72,7 +75,7 @@ const MeetTheArtists = () => {
                     )}
                   </h3>
                   <p className="font-bold font-lato">{a.handle}</p>
-                  <p className="mt-3 leading-relaxed">{a.text}</p>
+                  <p className="mt-3 leading-normal text-sm">{a.text}</p>
                 </div>
               </div>
             </div>
