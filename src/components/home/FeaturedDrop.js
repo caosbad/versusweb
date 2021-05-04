@@ -17,7 +17,7 @@ const FeaturedDrop = () => {
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <span className="font-lato text-xl uppercase mb-4 sm:mb-0">
-            <span className="font-light">May 6th </span>
+            <span className="font-light">May 5th </span>
             <span className="font-bold">10am EST</span>
           </span>
           <Link
