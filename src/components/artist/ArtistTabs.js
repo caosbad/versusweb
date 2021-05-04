@@ -58,7 +58,9 @@ const ArtistTabs = ({ className = "", dropInfo, ...newProps }) => {
         to={
           dropInfo.isProfile
             ? `#`
-            : `/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}`
+            : `/artist/${t.href ? `${t.href}/` : ""}${
+                dropInfo.slug || dropInfo.id
+              }`
         }
         className={`${tabClassName} ${
           activeTab === index ? "font-lato font-semibold" : "font-sourceSansPro"
