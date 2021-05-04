@@ -8,26 +8,30 @@ import hero4 from "../../images/hero4.png";
 import hero5 from "../../images/hero5.png";
 import hero6 from "../../images/hero6.png";
 import bigv from "../../images/bigv.png";
+import NotifBar from "../general/NotifBar";
 
 const Landing = () => {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
   const form = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("");
+    setStatus(null);
     const { email } = form.current;
     try {
       const result = await addToMailchimp(email.value);
       if (result.result === "success") {
-        setStatus("Thanks! You have now been subscribed");
-        setTimeout(() => setStatus(""), 10000);
+        setStatus({
+          type: "success",
+          text: "Thanks! You have now been subscribed",
+        });
+        setTimeout(() => setStatus(null), 10000);
       } else {
-        setStatus("Please enter a valid email");
-        setTimeout(() => setStatus(""), 5000);
+        setStatus({ type: "error", text: "Please enter a valid email" });
+        setTimeout(() => setStatus(null), 5000);
       }
     } catch (e) {
-      setStatus("Please enter a valid email");
-      setTimeout(() => setStatus(""), 5000);
+      setStatus({ type: "error", text: "Please enter a valid email" });
+      setTimeout(() => setStatus(null), 5000);
     }
   };
   return (
@@ -44,25 +48,21 @@ const Landing = () => {
           <h3 className="mt-6 leading-6 w-full sm:w-10/12 max-w-full font-sourceSansPro text-xl">
             Request early access to be included in our inaugural drop.
           </h3>
-          <form
-            className="flex flex-col sm:block mt-6 relative w-full"
-            onSubmit={handleSubmit}
-            ref={form}
-          >
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              className="bg-white border-none font-semibold outline-none placeholder-black-200 px-8 py-3 rounded-full text-black-500 text-lg w-full"
-            />
-            <input
-              type="submit"
-              className="standard-button absolute right-0 h-full px-6 text-lg"
-              value="Sign Up"
-            />
-            <span className="absolute bottom-full left-0 w-full text-right mb-2 text-xs sm:text-sm">
-              {status}
-            </span>
+          <form onSubmit={handleSubmit} ref={form}>
+            <div className="flex flex-col sm:block mt-6 relative w-full">
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                className="bg-white border-none font-semibold outline-none placeholder-black-200 px-8 py-3 rounded-full text-black-500 text-lg w-full"
+              />
+              <input
+                type="submit"
+                className="standard-button border-button absolute right-0 h-full px-6 text-lg"
+                value="Sign Up"
+              />
+            </div>
+            {status && <NotifBar text={status.text} type={status.type} />}
           </form>
           <span className="mt-3 text-sm">
             *By entering your details you are signing up to our privacy policy

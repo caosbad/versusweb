@@ -50,10 +50,10 @@ const ArtistProfile = ({ dropInfo }) => {
       </div>
       <div className="mb-8 w-96 max-w-full mx-auto px-4">
         <h3 className="font-lato text-2xl font-bold">
-          {get(recentWork, "[0].title")}
+          {get(recentWork, "[1].title")}
         </h3>
         <p className="mt-4 text-mediumGrey mb-12">
-          {get(recentWork, "[0].description")}
+          {get(recentWork, "[1].description")}
         </p>
       </div>
     </div>
