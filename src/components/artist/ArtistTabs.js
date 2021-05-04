@@ -30,7 +30,9 @@ const ArtistTabs = ({ className = "", dropInfo, ...newProps }) => {
     tabs,
     (t) =>
       location.pathname ===
-        `/artist/${t.href ? `${t.href}/` : ""}${dropInfo.id}` ||
+        `/artist/${t.href ? `${t.href}/` : ""}${
+          dropInfo.slug || dropInfo.id
+        }` ||
       (includes(location.pathname, "profile") && t.name === "Collection")
   );
   let finalClass = `${className} w-full flex sm:border-b tab-border relative flex-col sm:flex-row`;
