@@ -87,6 +87,7 @@ export const query = graphql`
         node {
           context {
             id
+            slug
             marketplaceAccount
             title
             artist

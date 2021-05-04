@@ -30,6 +30,7 @@ export const query = graphql`
           context {
             id
             title
+            slug
             artist
             handle
             smallImage
