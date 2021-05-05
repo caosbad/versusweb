@@ -68,7 +68,7 @@ const UniqueBidBox = ({
           },
           async onSuccess(status) {
             setStatus({
-              msg: "Bid Succesfully Submitted",
+              msg: "Bid Successfully Submitted",
               subtext: "Your bid was successfully submitted.",
               allowClose: true,
             });
