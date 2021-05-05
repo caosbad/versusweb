@@ -86,7 +86,7 @@ const Footer = () => {
                 <Twitter className="h-6 fill-current" />
               </a>
               <a
-                href="https://www.instagram.com/versus.flow.art/"
+                href="https://www.instagram.com/flowversus/"
                 target="_blank"
                 className="cursor-pointer"
               >
