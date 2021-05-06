@@ -7,9 +7,9 @@ import "../config";
 import Nav from "../components/general/Nav";
 import Footer from "../components/general/Footer";
 import icon from "../images/icon.png";
-import { withPrefix } from "gatsby";
 import { fetchOneUser } from "../components/artist/transactions";
 import { useError } from "react-use";
+import { withPrefix } from "gatsby";
 
 const Main = ({ children }) => {
   const [user, setUser] = useState({ loggedIn: null });
@@ -46,7 +46,9 @@ const Main = ({ children }) => {
         />
         <meta
           property="og:image"
-          content={withPrefix("/images/versussocial.png")}
+          content={`https://www.versus-flow.art${withPrefix(
+            "/images/versussocial.png"
+          )}`}
         />
 
         <meta property="twitter:card" content="summary_large_image" />
@@ -58,7 +60,9 @@ const Main = ({ children }) => {
         />
         <meta
           property="twitter:image"
-          content={withPrefix("/images/versussocial.png")}
+          content={`https://www.versus-flow.art${withPrefix(
+            "/images/versussocial.png"
+          )}`}
         />
       </Helmet>
       <Nav user={user} balance={balance} />
