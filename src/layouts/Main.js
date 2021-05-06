@@ -7,7 +7,7 @@ import "../config";
 import Nav from "../components/general/Nav";
 import Footer from "../components/general/Footer";
 import icon from "../images/icon.png";
-import { withPrefix } from "gatsby";
+import versusSocial from "../images/versussocial.png";
 import { fetchOneUser } from "../components/artist/transactions";
 import { useError } from "react-use";
 
@@ -44,10 +44,7 @@ const Main = ({ children }) => {
           property="og:description"
           content="Versus is a novel NFT art marketplace that works to empower the artist and the collector."
         />
-        <meta
-          property="og:image"
-          content={withPrefix("/images/versussocial.png")}
-        />
+        <meta property="og:image" content={versusSocial} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="http://versus-flow.art/" />
@@ -56,10 +53,7 @@ const Main = ({ children }) => {
           property="twitter:description"
           content="Versus is a novel NFT art marketplace that works to empower the artist and the collector."
         />
-        <meta
-          property="twitter:image"
-          content={withPrefix("/images/versussocial.png")}
-        />
+        <meta property="twitter:image" content={versusSocial} />
       </Helmet>
       <Nav user={user} balance={balance} />
       {children(user)}
