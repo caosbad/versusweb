@@ -1,3 +1,5 @@
+import * as fcl from "@onflow/fcl";
+
 export const fetchVersusDrop = `
 // This script checks that the accounts are set up correctly for the marketplace tutorial.
 //
@@ -60,5 +62,29 @@ pub fun main(address:Address) : UFix64 {
 
     return balance
 
+}
+`;
+
+export const connectArtCollection = `
+import NonFungibleToken from 0xNonFungibleToken
+import Art from 0xCONTRACT
+
+//This transaction will setup a drop in a versus auction
+transaction() {
+    prepare(account: AuthAccount) {
+        account.save<@NonFungibleToken.Collection>(<- Art.createEmptyCollection(), to: Art.CollectionStoragePath)
+        account.link<&{Art.CollectionPublic}>(Art.CollectionPublicPath, target: Art.CollectionStoragePath)
+    }
+
+}
+`;
+
+export const checkForArtConnection = `
+import Art from 0xCONTRACT
+
+pub fun main(address: Address): Bool {
+  let account = getAccount(address)
+  var collectionCap = account.getCapability<&{Art.CollectionPublic}>(Art.CollectionPublicPath)
+  return collectionCap.check()
 }
 `;
