@@ -2,6 +2,7 @@
   {
     "id": "1",
     "marketplaceAccount": "0xd5ee212b0fa4a319",
+    "slug": "1",
     "title": "The Bull",
     "artist": "Kinger9999",
     "handle": "@kinger",
@@ -33,6 +34,7 @@
   {
     "id": "2",
     "marketplaceAccount": "0xd5ee212b0fa4a319",
+    "slug": "2",
     "title": "Versus",
     "artist": "Kinger9999",
     "handle": "@kinger",
@@ -64,6 +66,7 @@
   {
     "id": "3",
     "marketplaceAccount": "0xd5ee212b0fa4a319",
+    "slug": "3",
     "title": "Versus",
     "artist": "Kinger9999",
     "handle": "@kinger",
@@ -97,6 +100,7 @@
     "marketplaceAccount": "0xd5ee212b0fa4a319",
     "title": "Versus",
     "artist": "Kinger9999",
+    "slug": "4",
     "handle": "@kinger",
     "smallImage": "/drops/thebull/prof.png",
     "featuredImage": "/drops/versus/versus.png",

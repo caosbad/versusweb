@@ -11,7 +11,7 @@ const Profile = (props) => {
   const addr = get(props, "params.*");
   return (
     <Main>
-      {() => (
+      {(user) => (
         <>
           <Helmet>
             <title>Profile</title>
@@ -22,6 +22,7 @@ const Profile = (props) => {
               artist: addr,
               isProfile: true,
             }}
+            user={user}
           />
           <ArtistCollection addr={addr} />
         </>
