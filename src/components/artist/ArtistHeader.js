@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import get from "lodash.get";
 import * as fcl from "@onflow/fcl";
+import * as t from "@onflow/types";
 
 import prof from "../../images/prof.png";
 import ArtistTabs from "./ArtistTabs";
 import { withPrefix } from "gatsby";
 import { tx } from "../drops/transactions";
-import { connectArtCollection } from "./transactions";
+import { checkForArtConnection, connectArtCollection } from "./transactions";
 
 const ArtistHeader = ({ dropInfo, user }) => {
   const { artist, smallImage, handle } = dropInfo || {};
-  console.log(user);
+  const [showButton, setShowButton] = useState(false);
+  const [run, setRun] = useState(0);
   const myPage = user && user.addr && artist === user.addr;
+  useEffect(async () => {
+    async function checkCollection() {
+      const response = await fcl.send([
+        fcl.script(checkForArtConnection),
+        fcl.args([fcl.arg(user.addr, t.Address)]),
+      ]);
+      const dResponse = await fcl.decode(response);
+      setShowButton(!dResponse);
+    }
+    if (user && user.addr) checkCollection();
+  }, [user, run]);
   const createArtCollection = async (e) => {
     e.preventDefault();
     try {
@@ -28,7 +41,7 @@ const ArtistHeader = ({ dropInfo, user }) => {
           onStart() {},
           onSubmission() {},
           async onSuccess(status) {
-            console.log(status);
+            setRun(Math.random());
           },
           async onError(error) {
             console.log(error);
@@ -48,7 +61,7 @@ const ArtistHeader = ({ dropInfo, user }) => {
         </div>
         <h1 className="text-2xl font-bold font-lato mt-4 mb-1">{artist}</h1>
         <p className="text-lg font-lato">{handle}</p>
-        {myPage && (
+        {myPage && showButton ? (
           <button
             className="standard-button small-button mt-3 mb-16"
             role="button"
@@ -57,6 +70,8 @@ const ArtistHeader = ({ dropInfo, user }) => {
           >
             Create Art Collection
           </button>
+        ) : (
+          ""
         )}
       </div>
       <div className="absolute bottom-4 w-full left-0 px-6 md:px-24">

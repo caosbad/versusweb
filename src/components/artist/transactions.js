@@ -78,3 +78,13 @@ transaction() {
 
 }
 `;
+
+export const checkForArtConnection = `
+import Art from 0xCONTRACT
+
+pub fun main(address: Address): Bool {
+  let account = getAccount(address)
+  var collectionCap = account.getCapability<&{Art.CollectionPublic}>(Art.CollectionPublicPath)
+  return collectionCap.check()
+}
+`;
