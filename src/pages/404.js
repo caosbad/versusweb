@@ -5,7 +5,9 @@ import Logo from "../assets/vslogo.svg";
 
 // markup
 const NotFoundPage = () => {
-  return (
+  const browser = typeof window !== "undefined" && window;
+
+  return browser ? (
     <main className="my-24 container mx-auto text-center">
       <title>Not found</title>
       <Link className="cursor-pointer" to="/">
@@ -32,6 +34,8 @@ const NotFoundPage = () => {
         </Link>
       </p>
     </main>
+  ) : (
+    ""
   );
 };
 
