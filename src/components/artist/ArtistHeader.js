@@ -18,13 +18,13 @@ const ArtistHeader = ({ dropInfo, user }) => {
     async function checkCollection() {
       const response = await fcl.send([
         fcl.script(checkForArtConnection),
-        fcl.args([fcl.arg(user.addr, t.Address)]),
+        fcl.args([fcl.arg(artist, t.Address)]),
       ]);
       const dResponse = await fcl.decode(response);
-      setShowButton(!dResponse);
+      if (user && user.addr) setShowButton(!dResponse);
       if (dResponse) console.log("verified");
     }
-    if (user && user.addr) checkCollection();
+    if (dropInfo.isProfile) checkCollection();
   }, [user, run]);
   const createArtCollection = async (e) => {
     e.preventDefault();
