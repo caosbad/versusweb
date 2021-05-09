@@ -22,6 +22,7 @@ const ArtistHeader = ({ dropInfo, user }) => {
       ]);
       const dResponse = await fcl.decode(response);
       setShowButton(!dResponse);
+      if (dResponse) console.log("verified");
     }
     if (user && user.addr) checkCollection();
   }, [user, run]);
