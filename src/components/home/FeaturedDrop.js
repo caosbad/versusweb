@@ -25,10 +25,10 @@ const FeaturedDrop = () => {
           </span>
           <Link
             to="/artist/drops/han"
-            className="standard-button long-button white-button arrow-button"
+            className="hidden standard-button long-button white-button arrow-button"
           >
             View Drop
-            <Arrow className="hidden sm:inline-block ml-3 stroke-current stroke-1" />
+            <Arrow className="sm:inline-block ml-3 stroke-current stroke-1" />
           </Link>
         </div>
       </div>
