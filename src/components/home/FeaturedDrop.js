@@ -23,13 +23,13 @@ const FeaturedDrop = () => {
             <span className="font-light relative z-10">May 12th </span>
             <span className="font-bold relative z-10">10am EST</span>
           </span>
-          <Link
+          {/* <Link
             to="/artist/drops/han"
-            className="hidden standard-button long-button white-button arrow-button"
+            className="standard-button long-button white-button arrow-button hidden"
           >
             View Drop
             <Arrow className="sm:inline-block ml-3 stroke-current stroke-1" />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
