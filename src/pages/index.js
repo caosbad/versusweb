@@ -17,6 +17,7 @@ const Home = () => {
           <Helmet>
             <title>Home</title>
           </Helmet>
+          <FeaturedDrop />
           <Landing />
           <WhatsDifferent />
           <NotRewarded />
