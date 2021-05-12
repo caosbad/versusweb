@@ -48,8 +48,8 @@ const IndDropTimer = ({ timeRemaining }) => {
       className={classnames(
         "w-full sm:w-10/12 mx-auto text-white py-2 px-4 rounded-b-md",
         {
-          "bg-black-500": timeRemaining > 600,
-          "bg-red": timeRemaining <= 600,
+          "bg-black-500": timeRemaining > 300,
+          "bg-red": timeRemaining <= 300,
         }
       )}
     >
