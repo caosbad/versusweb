@@ -61,5 +61,37 @@
         "link": "/"
       }
     ]
+  },
+  {
+    "id": "4",
+    "marketplaceAccount": "0xd796ff17107bbff6",
+    "title": "Fall",
+    "slug": "han",
+    "artist": "Han",
+    "handle": "hanrgb",
+    "smallImage": "/drops/han/preview.jpg",
+    "featuredImage": "",
+    "twitter": "https://twitter.com/hanrgb",
+    "instagram": "https://www.instagram.com/hanrgb",
+    "aboutArtist": "Years of thought on how to express the inexpressible has led Han down the path of Crypto and Digital Art. When asked about the inspiration behind his simplistic designs, he responds that he does it to show “All that I can't say”",
+    "increment": "5",
+    "recentWork": [
+      {
+        "image": "/drops/han/piece1.jpg",
+        "title": "Aspect",
+        "description": "",
+        "link": "/"
+      },
+      {
+        "image": "/drops/han/piece2.jpg",
+        "title": "Crescent",
+        "link": "/"
+      },
+      {
+        "image": "/drops/han/piece3.jpg",
+        "title": "Where",
+        "link": "/"
+      }
+    ]
   }
 ]

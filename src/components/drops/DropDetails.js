@@ -114,7 +114,7 @@ const DropDetails = ({
             "font-bold max-w-screen-md mt-2 mx-auto text-4xl",
             {
               "text-red":
-                !drop.active && timeRemaining <= 600 && !drop.settledAt,
+                !drop.active && timeRemaining <= 300 && !drop.settledAt,
             }
           )}
         >
